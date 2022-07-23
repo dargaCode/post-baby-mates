@@ -6,6 +6,12 @@ export interface Recipe {
   link?: string;
 }
 
+export interface CategoryData{
+  name: string;
+  category: string;
+  description: string;
+}
+
 export enum Category {
   Soup= 'SOUP',
   Stew= 'STEW',
