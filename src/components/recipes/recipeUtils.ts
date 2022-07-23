@@ -6,8 +6,8 @@ export interface Recipe {
 }
 
 export enum Category {
-  Soup,
-  Stew,
-  Bowl,
-  SidesAndDesserts,
+  Soup= 'SOUP',
+  Stew= 'STEW',
+  Bowl= 'BOWL',
+  SidesAndDesserts= 'SIDES_AND_DESSERTS',
 }
