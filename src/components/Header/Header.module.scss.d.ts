@@ -1,8 +1,5 @@
 export type Styles = {
-  container: string;
-  contentSection: string;
-  invisibleButOutlineReadable: string;
-  sort: string;
+  header: string;
 };
 
 export type ClassNames = keyof Styles;
