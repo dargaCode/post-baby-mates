@@ -13,7 +13,7 @@ export default function RecipeCard(props: Props): JSX.Element {
 
   return (
     <div className={styles.recipeCard}>
-      <h3>{name}</h3>
+      <h4>{name}</h4>
       <p>{description}</p>
     </div>
   );

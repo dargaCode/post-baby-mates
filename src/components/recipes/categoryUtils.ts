@@ -1,10 +1,10 @@
 export interface Category{
   name: string;
-  category: string;
+  id: CategoryNames;
   description: string;
 }
 
-export enum Categories {
+export enum CategoryNames {
   Soup= 'SOUP',
   Stew= 'STEW',
   Bowl= 'BOWL',

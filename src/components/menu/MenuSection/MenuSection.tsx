@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from "./MenuSection.module.scss";
 
-import {Category} from "../../recipes/recipeUtils";
+import {Category} from "../../recipes/categoryUtils";
 import RecipeList from "../../recipes/RecipeList/RecipeList";
 
 interface Props {
@@ -10,14 +10,15 @@ interface Props {
 }
 
 export default function MenuSection(props: Props): JSX.Element {
-  const {category: {name, category, description}} = props;
+  const {category} = props;
+  const {name, description} = category;
 
   return (
-    <div className={styles.menuSection}>
-      <h2>{name}</h2>
+    <div className={styles.menuSection} id={category.id}>
+      <h3>{name}</h3>
       <p>{description}</p>
 
-      <RecipeList/>
+      <RecipeList category={category}/>
     </div>
   );
 }

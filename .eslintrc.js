@@ -66,7 +66,7 @@ module.exports = {
     "no-plusplus": [2, { allowForLoopAfterthoughts: true }],
     "capitalized-comments": [1, "never", { ignorePattern: "TODO" }],
     "spellcheck/spell-checker": [
-      2,
+      0,
       {
         skipWords: allowedWords,
         skipIfMatch: ["^http"]
