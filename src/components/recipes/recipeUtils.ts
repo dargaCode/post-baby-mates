@@ -3,6 +3,7 @@ export interface Recipe {
   category: string;
   description: string;
   note: string;
+  link?: string;
 }
 
 export enum Category {
