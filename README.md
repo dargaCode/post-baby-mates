@@ -1,11 +1,5 @@
-# webpack-react-template
+# post-baby-mates
 
-**<a href="https://dargacode.github.io/webpack-react-template"><b>Live Webpage</b></a>**
+**<a href="https://dargacode.github.io/post-baby-mates"><b>Live Webpage</b></a>**
 
-A homemade template which will support my projects on a React tech stack:
-* Webpack
-* React
-* TypeScript
-* SCSS
-* Jest
-* Storybook
+A little webpage to let our friends "order" food from us.
