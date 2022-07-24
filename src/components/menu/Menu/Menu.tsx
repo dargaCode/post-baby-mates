@@ -2,9 +2,9 @@ import React from 'react';
 
 import styles from "./Menu.module.scss";
 
-import {CATEGORIES} from "../../recipes/categoryData";
-import {Category} from "../../recipes/categoryUtils";
 import MenuSection from "../MenuSection/MenuSection";
+
+import {CATEGORIES} from "../../recipes/categoryData";
 
 export default function Menu(): JSX.Element {
   return (
