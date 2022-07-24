@@ -2,8 +2,6 @@ import { Recipe } from "./recipeUtils";
 import { CategoryNames} from "./categoryUtils";
 
 // eslint-disable-next-line import/prefer-default-export
-
-
 export const RECIPES: Recipe[] = [
   {
     name: "Classic Chicken Noodle",
@@ -16,7 +14,7 @@ export const RECIPES: Recipe[] = [
     name: "Chicken Tortellini",
     categoryId: CategoryNames.Soup,
     description:
-      "Chicken thighs, onion, carrot, celery, Buitoni brand tortellini, tomato, spinach, cream, and parmesan      ",
+      "Chicken thighs, onion, carrot, celery, Buitoni brand tortellini, tomato, spinach, cream, and parmesan",
     note: "",
   },
   {
@@ -105,42 +103,42 @@ export const RECIPES: Recipe[] = [
   },
   {
     name: "Homemade Sourdough Boule",
-    categoryId: CategoryNames.SidesAndDesserts,
+    categoryId: CategoryNames.Baked,
     description:
       "Made with unenriched white, wheat, and rye flours",
     note: "Note: The sourdough starter will have been fed with unenriched flour for the last couple cycles, however there may be trace amounts of regular flour still kicking around in the starter - would amount to no more than 1-2 tsp of enriched flour in the loaf at most. If this is still a risk factor then let's skip this one :) ",
   },
   {
     name: "Mini Cornbread Muffins",
-    categoryId: CategoryNames.SidesAndDesserts,
+    categoryId: CategoryNames.Baked,
     description:
       "1 Dozen northern style cornbread muffins",
     note: "Choose: Classic, Blueberry, or Cheddar Jalapeño",
   },
   {
     name: "Pumpkin Bread Muffins",
-    categoryId: CategoryNames.SidesAndDesserts,
+    categoryId: CategoryNames.Baked,
     description:
       "1 Dozen sweet, cakey pumpkin spice muffins",
     note: "",
   },
   {
     name: "Banana Bread Muffins",
-    categoryId: CategoryNames.SidesAndDesserts,
+    categoryId: CategoryNames.Baked,
     description:
       "1 Dozen sweet, spiced banana bread muffins. Contains no nuts unless you really want them in there",
     note: "",
   },
   {
     name: "Brownies",
-    categoryId: CategoryNames.SidesAndDesserts,
+    categoryId: CategoryNames.Baked,
     description:
       "Your choice of ultra dense, fudgy brownies (Claire Saffitz recipe) loaded with chocolate chips, or more cakelike soft brownies flavored with almond extract (Elyse's family recipe)",
     note: "",
   },
   {
     name: "Chocolate Chip Cookies",
-    categoryId: CategoryNames.SidesAndDesserts,
+    categoryId: CategoryNames.Baked,
     description:
       "Let us know what kind of chocolate chip cookie you like, we've got like 7 recipes and they're all great",
     note: "",

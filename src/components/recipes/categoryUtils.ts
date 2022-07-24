@@ -5,8 +5,8 @@ export interface Category{
 }
 
 export enum CategoryNames {
-  Soup= 'SOUP',
-  Stew= 'STEW',
-  Bowl= 'BOWL',
-  SidesAndDesserts= 'SIDES_AND_DESSERTS',
+  Soup= 'soup',
+  Stew= 'stew',
+  Bowl= 'bowl',
+  Baked= 'baked',
 }

@@ -11,7 +11,7 @@ const MomentLocalesWebpackPlugin = require("moment-locales-webpack-plugin");
 
 module.exports = {
   entry: {
-    app: "./src/index.tsx"
+    app: "./src/components/App/App.tsx"
   },
   output: {
     path: path.resolve(__dirname, "dist"),

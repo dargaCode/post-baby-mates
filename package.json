@@ -12,7 +12,7 @@
     "deploy": "npx gh-pages -d dist -m \"Build app and deploy to gh-pages\"",
     "storybook": "start-storybook -p 6006 --ci"
   },
-  "main": "index.tsx",
+  "main": "./components/App/App.tsx",
   "author": "",
   "license": "ISC",
   "keywords": [],

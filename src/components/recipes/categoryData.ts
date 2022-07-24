@@ -18,8 +18,8 @@ export const CATEGORIES : Category[] = [
     description: "Bowls come frozen in individually packaged portions. Microwave for 90s with the lid on, then remove lid and microwave for 3-4 more minutes to warm through.",
   },
   {
-    name: "Sides and Desserts",
-    id: CategoryNames.SidesAndDesserts,
+    name: "Baked",
+    id: CategoryNames.Baked,
     description: "These are delivered fresh, not frozen, however they can be frozen for later as well (we do this all the time!) All made with unenriched flour.",
   },
 ];

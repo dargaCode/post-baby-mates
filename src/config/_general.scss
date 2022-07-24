@@ -1,4 +1,3 @@
-@use 'constants';
 @use 'layout';
 @use '../utils/break';
 
@@ -17,7 +16,6 @@ body {
 }
 
 body {
-  color: constants.$body-text-color;
   font-family: $common-font-stack;
   line-height: 1.5;
   margin: 0;
@@ -25,7 +23,6 @@ body {
 }
 
 .content-section {
-  background: constants.$content-section-background-color;
   height: calc(100vh - #{layout.$navigation-bar-height}); // must have an explicit height to allow scrolling;
   overflow: auto; // allow scrollbar within content sections
 
@@ -73,7 +70,6 @@ body {
 }
 
 a {
-  color: constants.$link-text-color;
   text-decoration: none;
 }
 
@@ -96,7 +92,6 @@ h6 {
 }
 
 h2 {
-  color: constants.$content-section-heading-text-color;
   font-size: 40px;
   margin: 0 0 40px;
 
@@ -120,4 +115,3 @@ h2 {
     margin-bottom: 10px;
   }
 }
-
