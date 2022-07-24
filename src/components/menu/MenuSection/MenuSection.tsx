@@ -15,8 +15,8 @@ export default function MenuSection(props: Props): JSX.Element {
 
   return (
     <div className={styles.menuSection} id={category.id}>
-      <h3>{name}</h3>
-      <p>{description}</p>
+      <h3 className = {styles.menuSectionName}>{name}</h3>
+      <p className = {styles.menuSectionDescription}>{description}</p>
 
       <RecipeList category={category}/>
     </div>
