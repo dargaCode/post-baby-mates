@@ -9,7 +9,6 @@ import MenuSection from "../MenuSection/MenuSection";
 export default function Menu(): JSX.Element {
   return (
     <div className={styles.menu}>
-      <h2>Menu</h2>
       {CATEGORIES.map((category, index) => {
         const {name} = category;
         const key = `${index}-${name}`;
