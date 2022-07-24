@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 
 import Header from "./components/header/Header";
 import Menu from "./components/menu/Menu/Menu";
+import "./config/_general.scss";
 
 function App(): JSX.Element {
   return (

@@ -1,3 +1,18 @@
 .recipeCard {
+    width: 600px;
+    min-height: 60px;
+    //font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
+.recipeName{
+    text-align: left;
+    font-size: 12pt;
+    font-weight: 500;
+    color: #222;
+}
+
+.recipeDescription{
+    font-size: 10pt;
+    font-weight: 300;
+    color: #777;
 }
