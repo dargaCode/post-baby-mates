@@ -9,12 +9,13 @@ interface Props {
 }
 
 export default function RecipeCard(props: Props): JSX.Element {
-  const {recipe: {name, description}} = props;
+  const {recipe: {name, description, note}} = props;
 
   return (
     <div className={styles.recipeCard}>
       <h4 className={styles.recipeName}>{name}</h4>
       <p className={styles.recipeDescription}>{description}</p>
+      <p className={styles.recipeNote}>{note}</p>
     </div>
   );
 }

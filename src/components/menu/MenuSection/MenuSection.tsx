@@ -11,7 +11,7 @@ interface Props {
 
 export default function MenuSection(props: Props): JSX.Element {
   const {category} = props;
-  const {name, description} = category;
+  const {name, description} = category; 
 
   return (
     <div className={styles.menuSection} id={category.id}>
