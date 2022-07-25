@@ -5,13 +5,13 @@ import styles from "./Loading.module.scss";
 import Loading from "./Loading";
 
 describe("`Loading", () => {
-  it("should render the loading overlay", () => {
+  it("should render the Loading overlay", () => {
     const wrapper = shallow(<Loading />);
 
     expect(wrapper.find(classSelector(styles.loadingOverlay))).toHaveLength(1);
   });
 
-  it("should render the loading message", () => {
+  it("should render the Loading message", () => {
     const wrapper = shallow(<Loading />);
 
     expect(wrapper.find(classSelector(styles.loadingMessage))).toHaveLength(1);

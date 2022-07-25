@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from './Navigation.module.scss';
 
-import {CATEGORIES} from "../recipes/categoryData";
+import {CATEGORIES} from "../../utils/categoryData";
 
 export default function Navigation() : JSX.Element {
   return <nav className={styles.navigation}>

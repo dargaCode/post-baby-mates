@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from "./RecipeCard.module.scss";
 
-import {Recipe} from "../recipeUtils";
+import {Recipe} from "../../utils/recipeUtils";
 
 interface Props {
   recipe: Recipe;

@@ -4,7 +4,7 @@ import styles from "./Menu.module.scss";
 
 import MenuSection from "../MenuSection/MenuSection";
 
-import {CATEGORIES} from "../../recipes/categoryData";
+import {CATEGORIES} from "../../utils/categoryData";
 
 export default function Menu(): JSX.Element {
   return (

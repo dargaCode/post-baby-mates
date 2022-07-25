@@ -4,8 +4,8 @@ import styles from "./RecipeList.module.scss";
 
 import RecipeCard from "../RecipeCard/RecipeCard";
 
-import {RECIPES} from "../recipeData";
-import {Category} from "../categoryUtils";
+import {RECIPES} from "../../utils/recipeData";
+import {Category} from "../../utils/categoryUtils";
 
 interface Props {
   category: Category;
