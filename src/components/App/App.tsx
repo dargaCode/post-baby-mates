@@ -8,14 +8,14 @@ import styles from "./App.module.scss";
 import "../../config/_general.scss";
 
 import Header from "../Header/Header";
+import Cart from "../Cart/Cart";
 import Navigation from "../Navigation/Navigation";
 import Menu from "../Menu/Menu";
-import {Counter} from "../Counter/Counter";
 
 function App(): JSX.Element {
   return (
     <div className={styles.app}>
-      <Counter />
+      <Cart />
       <Header/>
       <div className={styles.about} >
         <p>Hello Rachel and Aric!</p>
