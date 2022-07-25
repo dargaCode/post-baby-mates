@@ -4,6 +4,7 @@ import { CategoryNames} from "./categoryUtils";
 // eslint-disable-next-line import/prefer-default-export
 export const RECIPES: Recipe[] = [
   {
+    id: "chicken-soup",
     name: "Classic Chicken Noodle",
     categoryId: CategoryNames.Soup,
     description:
@@ -11,6 +12,7 @@ export const RECIPES: Recipe[] = [
     note: "",
   },
   {
+    id: "tortellini-soup",
     name: "Chicken Tortellini",
     categoryId: CategoryNames.Soup,
     description:
@@ -18,6 +20,7 @@ export const RECIPES: Recipe[] = [
     note: "",
   },
   {
+    id: "bean-soup",
     name: "Bean Soup",
     categoryId: CategoryNames.Soup,
     description:
@@ -25,6 +28,7 @@ export const RECIPES: Recipe[] = [
     note: "",
   },
   {
+    id: "beef-soup",
     name: "Beef and Barley Soup",
     categoryId: CategoryNames.Soup,
     description:
@@ -32,6 +36,7 @@ export const RECIPES: Recipe[] = [
     note: "",
   },
   {
+    id: "pickle-soup",
     name: "Pickle Soup",
     categoryId: CategoryNames.Soup,
     description:
@@ -39,6 +44,7 @@ export const RECIPES: Recipe[] = [
     note: "   + Optional: Add regular or turkey meatballs",
   },
   {
+    id: "mushroom-soup",
     name: "Thicc Mushroom and Wild Rice",
     categoryId: CategoryNames.Soup,
     description:
@@ -46,6 +52,7 @@ export const RECIPES: Recipe[] = [
     note: "",
   },
   {
+    id: "beef-chili",
     name: "Beef Chili",
     categoryId: CategoryNames.Stew,
     description:
@@ -53,6 +60,7 @@ export const RECIPES: Recipe[] = [
     note: "",
   },
   {
+    id: "chicken-chili",
     name: "White Chicken Chili",
     categoryId: CategoryNames.Stew,
     description:
@@ -60,6 +68,7 @@ export const RECIPES: Recipe[] = [
     note: "",
   },
   {
+    id: "chicken-curry",
     name: "Not Authentic Butter Chicken Tikka",
     categoryId: CategoryNames.Stew,
     description:
@@ -67,6 +76,7 @@ export const RECIPES: Recipe[] = [
     note: "",
   },
   {
+    id: "teriyaki-bowl",
     name: "Teriyaki Bowl",
     categoryId: CategoryNames.Bowl,
     description:
@@ -74,6 +84,7 @@ export const RECIPES: Recipe[] = [
     note: "  + Choose Protein: Beef, Chicken Thigh, Chicken Breast",
   },
   {
+    id: "roasted-bowl",
     name: "Roasted Meat and Veggie Bowl",
     categoryId: CategoryNames.Bowl,
     description:
@@ -81,6 +92,7 @@ export const RECIPES: Recipe[] = [
     note: "  + Choose Seasoning style: Garlic & Herb, Lemon Pepper, Cajun, BBQ",
   },
   {
+    id: "chicken-casserole",
     name: "Poblano Chicken Casserole",
     categoryId: CategoryNames.Bowl,
     description:
@@ -88,6 +100,7 @@ export const RECIPES: Recipe[] = [
     note: "Note: Campbells ready-to-eat soup has enriched flour in the ingredient list, but their concentrate does not. If this still doesn't feel safe, we can make our own mushroom base using roux thickened with unenriched flour at home! ",
   },
   {
+    id: "meatball-pasta",
     name: "Red Pasta and Meatballs",
     categoryId: CategoryNames.Bowl,
     description:
@@ -95,6 +108,7 @@ export const RECIPES: Recipe[] = [
     note: "",
   },
   {
+    id: "garlic-pasta",
     name: "Garlicky \"Italian\" Pasta",
     categoryId: CategoryNames.Bowl,
     description:
@@ -102,6 +116,7 @@ export const RECIPES: Recipe[] = [
     note: "",
   },
   {
+    id: "sourdough",
     name: "Homemade Sourdough Boule",
     categoryId: CategoryNames.Baked,
     description:
@@ -109,6 +124,7 @@ export const RECIPES: Recipe[] = [
     note: "Note: The sourdough starter will have been fed with unenriched flour for the last couple cycles, however there may be trace amounts of regular flour still kicking around in the starter - would amount to no more than 1-2 tsp of enriched flour in the loaf at most. If this is still a risk factor then let's skip this one :) ",
   },
   {
+    id: "cornbread",
     name: "Mini Cornbread Muffins",
     categoryId: CategoryNames.Baked,
     description:
@@ -116,6 +132,7 @@ export const RECIPES: Recipe[] = [
     note: "Choose: Classic, Blueberry, or Cheddar Jalapeño",
   },
   {
+    id: "pumpkin-muffins",
     name: "Pumpkin Bread Muffins",
     categoryId: CategoryNames.Baked,
     description:
@@ -123,6 +140,7 @@ export const RECIPES: Recipe[] = [
     note: "",
   },
   {
+    id: "banana-muffins",
     name: "Banana Bread Muffins",
     categoryId: CategoryNames.Baked,
     description:
@@ -130,6 +148,7 @@ export const RECIPES: Recipe[] = [
     note: "",
   },
   {
+    id: "brownies",
     name: "Brownies",
     categoryId: CategoryNames.Baked,
     description:
@@ -137,6 +156,7 @@ export const RECIPES: Recipe[] = [
     note: "",
   },
   {
+    id: "cookies",
     name: "Chocolate Chip Cookies",
     categoryId: CategoryNames.Baked,
     description:
@@ -145,3 +165,11 @@ export const RECIPES: Recipe[] = [
     link: "https://docs.google.com/document/d/19jw3EU03KQgp8eJBNk8OwZcy67jKcuMH9ojMXMHmVQM/edit",
   },
 ];
+
+interface RecipeDict {[key: string]: Recipe};
+
+export const RECIPES_BY_ID: RecipeDict = RECIPES.reduce((dictionary, recipe) => {
+  const {id} = recipe;
+
+  return {...dictionary, [id]: recipe};
+}, {});
