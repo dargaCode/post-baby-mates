@@ -13,9 +13,9 @@ export default function RecipeCard(props: Props): JSX.Element {
 
   return (
     <div className={styles.recipeCard}>
-      <h4 className={styles.recipeName}>{name}</h4>
-      <p className={styles.recipeDescription}>{description}</p>
-      <p className={styles.recipeNote}>{note}</p>
+      <h4 className={styles.name}>{name}</h4>
+      <p className={styles.description}>{description}</p>
+      <p className={styles.note}>{note}</p>
     </div>
   );
 }

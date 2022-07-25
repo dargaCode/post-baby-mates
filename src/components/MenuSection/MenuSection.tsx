@@ -2,8 +2,10 @@ import React from 'react';
 
 import styles from "./MenuSection.module.scss";
 
+import RecipeCard from "../RecipeCard/RecipeCard";
+
 import {Category} from "../../utils/categoryUtils";
-import RecipeList from "../RecipeList/RecipeList";
+import {RECIPES} from "../../utils/recipeData";
 
 interface Props {
   category: Category;
@@ -13,12 +15,27 @@ export default function MenuSection(props: Props): JSX.Element {
   const {category} = props;
   const {name, description} = category;
 
+  function renderRecipes() {
+    const {category: {id}} = props;
+    const categoryRecipes = RECIPES.filter(recipe => recipe.categoryId === id);
+
+    return (
+      <div className={styles.recipes}>
+        {categoryRecipes.map((recipe, index) => {
+          const key = `${index}-${recipe.name}`
+          return <RecipeCard key={key} recipe={recipe}/>})}
+      </div>
+    );
+  }
+
+
+
+
   return (
     <div className={styles.menuSection} id={category.id}>
-      <h3 className = {styles.menuSectionName}>{name}</h3>
-      <p className = {styles.menuSectionDescription}>{description}</p>
-
-      <RecipeList category={category}/>
+      <h3 className = {styles.name}>{name}</h3>
+      <p className = {styles.description}>{description}</p>
+      {renderRecipes()}
     </div>
   );
 }

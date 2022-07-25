@@ -1,4 +1,5 @@
 export type Styles = {
+  app: string;
   about: string;
   mainWrapper: string;
 };

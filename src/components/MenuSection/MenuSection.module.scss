@@ -1,23 +1,28 @@
 .menuSection {
-
     padding-left: 20px;
     padding-bottom: 30px;
 }
 
-.menuSectionName{
+.name {
     text-transform: uppercase;
     font-size: 24px;
     color: #222;
     margin: 0;
     padding-left: 10px;
-    
+
 }
 
-.menuSectionDescription{
+.description {
     margin: 0;
     padding-bottom: 30px;
     color: #777;
     font-weight: 300;
     max-width: 950px;
     padding-left: 10px;
+}
+
+.recipes {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
 }

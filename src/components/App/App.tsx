@@ -14,7 +14,7 @@ import {Counter} from "../Counter/Counter";
 
 function App(): JSX.Element {
   return (
-    <div>
+    <div className={styles.app}>
       <Counter />
       <Header/>
       <div className={styles.about} >
