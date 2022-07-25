@@ -1,16 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import { Provider } from 'react-redux';
+import store from "../../app/store";
+
 import styles from "./App.module.scss";
 import "../../config/_general.scss";
 
 import Header from "../header/Header";
 import Navigation from "../navigation/Navigation";
 import Menu from "../menu/Menu/Menu";
+import {Counter} from "../counter/Counter";
 
 function App(): JSX.Element {
   return (
     <div>
+      <Counter />
       <Header/>
       <div className={styles.about} >
         <p>Hello Rachel and Aric!</p>
@@ -36,4 +41,9 @@ function App(): JSX.Element {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
