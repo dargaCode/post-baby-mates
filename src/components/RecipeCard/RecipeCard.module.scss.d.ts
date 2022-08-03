@@ -1,5 +1,6 @@
 export type Styles = {
   recipeCard: string;
+  selected: string;
   name: string;
   description: string;
   note: string
