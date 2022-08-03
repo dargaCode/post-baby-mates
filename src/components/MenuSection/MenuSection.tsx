@@ -1,4 +1,6 @@
 import React from 'react';
+import {useSelector} from "react-redux";
+import {selectCart} from "../Cart/Cart.slice";
 
 import styles from "./MenuSection.module.scss";
 
@@ -15,6 +17,8 @@ export default function MenuSection(props: Props): JSX.Element {
   const {category} = props;
   const {name, description} = category;
 
+  const cart = useSelector(selectCart);
+
   function renderRecipes() {
     const {category: {id}} = props;
     const categoryRecipes = RECIPES.filter(recipe => recipe.categoryId === id);
@@ -22,8 +26,10 @@ export default function MenuSection(props: Props): JSX.Element {
     return (
       <div className={styles.recipes}>
         {categoryRecipes.map((recipe, index) => {
+          const isSelected = !!cart[recipe.id];
+
           const key = `${index}-${recipe.name}`
-          return <RecipeCard key={key} recipe={recipe}/>})}
+          return <RecipeCard key={key} recipe={recipe} isSelected={isSelected} />})}
       </div>
     );
   }

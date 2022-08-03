@@ -1,17 +1,18 @@
 import React from 'react';
-import {useSelector, useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
 
 import styles from "./RecipeCard.module.scss";
 
-import {toggleRecipeCartInclusion, selectCart} from "../Cart/Cart.slice";
+import {toggleRecipeCartInclusion} from "../Cart/Cart.slice";
 import {Recipe} from "../../utils/recipeUtils";
 
 interface Props {
   recipe: Recipe;
+  isSelected: boolean;
 }
 
 export default function RecipeCard(props: Props): JSX.Element {
-  const {recipe: {id, name, description, note}} = props;
+  const {recipe: {id, name, description, note, link}, isSelected} = props;
 
   const dispatch = useDispatch();
 
@@ -20,10 +21,11 @@ export default function RecipeCard(props: Props): JSX.Element {
   }
 
   return (
-    <div className={styles.recipeCard} onClick={handleClick} >
+    <div className={`${styles.recipeCard} ${isSelected ? styles.selected : ''}`} onClick={handleClick} >
       <h4 className={styles.name}>{name}</h4>
       <p className={styles.description}>{description}</p>
       <p className={styles.note}>{note}</p>
+      {link && <a href={link}>Click for more info</a>}
     </div>
   );
 }
