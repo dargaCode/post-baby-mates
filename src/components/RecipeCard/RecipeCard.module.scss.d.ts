@@ -1,10 +1,11 @@
 export type Styles = {
   recipeCard: string;
   selected: string;
+
   leftColumn: string;
   name: string;
   description: string;
-  note: string
+  note: string;
   rightColumn: string;
   icon: string;
 };

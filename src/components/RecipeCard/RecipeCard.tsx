@@ -1,10 +1,10 @@
-import React from 'react';
-import {useDispatch} from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 
 import styles from "./RecipeCard.module.scss";
 
-import {toggleRecipeCartInclusion} from "../Cart/Cart.slice";
-import {Recipe} from "../../utils/recipeUtils";
+import { toggleRecipeCartInclusion } from "../Cart/Cart.slice";
+import { Recipe } from "../../utils/recipeUtils";
 
 interface Props {
   recipe: Recipe;
@@ -12,7 +12,10 @@ interface Props {
 }
 
 export default function RecipeCard(props: Props): JSX.Element {
-  const {recipe: {id, name, description, note, link}, isSelected} = props;
+  const {
+    recipe: { id, name, description, note, link },
+    isSelected
+  } = props;
 
   const dispatch = useDispatch();
 
@@ -21,7 +24,10 @@ export default function RecipeCard(props: Props): JSX.Element {
   }
 
   return (
-    <div className={`${styles.recipeCard} ${isSelected ? styles.selected : ''}`} onClick={handleClick} >
+    <div
+      className={`${styles.recipeCard} ${isSelected ? styles.selected : ""}`}
+      onClick={handleClick}
+    >
       <div className={styles.leftColumn}>
         <h4 className={styles.name}>{name}</h4>
         <p className={styles.description}>{description}</p>
@@ -29,9 +35,8 @@ export default function RecipeCard(props: Props): JSX.Element {
         {link && <a href={link}>Click for more info</a>}
       </div>
       <div className={styles.rightColumn}>
-        <span className={styles.icon}>{isSelected ? 'Remove' : 'Add'}</span>
+        <span className={styles.icon}>{isSelected ? "Remove" : "Add"}</span>
       </div>
-
     </div>
   );
 }
