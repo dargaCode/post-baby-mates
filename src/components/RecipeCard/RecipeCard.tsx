@@ -22,10 +22,16 @@ export default function RecipeCard(props: Props): JSX.Element {
 
   return (
     <div className={`${styles.recipeCard} ${isSelected ? styles.selected : ''}`} onClick={handleClick} >
-      <h4 className={styles.name}>{name}</h4>
-      <p className={styles.description}>{description}</p>
-      <p className={styles.note}>{note}</p>
-      {link && <a href={link}>Click for more info</a>}
+      <div className={styles.leftColumn}>
+        <h4 className={styles.name}>{name}</h4>
+        <p className={styles.description}>{description}</p>
+        <p className={styles.note}>{note}</p>
+        {link && <a href={link}>Click for more info</a>}
+      </div>
+      <div className={styles.rightColumn}>
+        <span className={styles.icon}>{isSelected ? 'Remove' : 'Add'}</span>
+      </div>
+
     </div>
   );
 }
