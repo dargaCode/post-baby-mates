@@ -1,16 +1,10 @@
 .app {
-
 }
 
-.about {
-  padding-left: 41px;
-  margin-bottom: 30px;
-  color: #777;
-  font-weight: 300;
-  font-size: 10pt;
-  width: 700px;
+.outerFlexRow {
+  display: flex;
 }
 
-.mainWrapper {
+.innerFlexRow {
   display: flex;
 }

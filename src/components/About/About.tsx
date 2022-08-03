@@ -19,7 +19,7 @@ export default function About(): JSX.Element {
       </p>
       <p>
         Please feel free to request ingredient substitutions or removals or any
-        other customizations!All grains and grain-containing products will be
+        other customizations! All grains and grain-containing products will be
         carefully scrutinized for folic acid.
       </p>
     </div>

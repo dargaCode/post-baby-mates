@@ -1,7 +1,7 @@
 export type Styles = {
   app: string;
-  about: string;
-  mainWrapper: string;
+  outerFlexRow: string;
+  innerFlexRow: string;
 };
 
 export type ClassNames = keyof Styles;
