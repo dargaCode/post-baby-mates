@@ -1,8 +1,5 @@
 export type Styles = {
-  recipeCard: string;
-  name: string;
-  description: string;
-  note: string
+  cart: string;
 };
 
 export type ClassNames = keyof Styles;

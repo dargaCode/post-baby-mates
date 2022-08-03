@@ -8,11 +8,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../../app/store';
 
 interface CartState {
-  selectedRecipeIds: string[];
+  selectedRecipeIdsMap: {[key: string]: boolean};
 }
 
 const initialState: CartState = {
-  selectedRecipeIds: [],
+  selectedRecipeIdsMap: {},
 };
 
 export const cartSlice = createSlice({
@@ -21,14 +21,14 @@ export const cartSlice = createSlice({
   initialState,
   // the `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    addRecipeId: (state, action: PayloadAction<string>) => {
-      state.selectedRecipeIds.push(action.payload);
+    toggleRecipeCartInclusion: (state, action: PayloadAction<string>) => {
+      state.selectedRecipeIdsMap[action.payload] = !state.selectedRecipeIdsMap[action.payload];
     },
   }
 });
 
-export const { addRecipeId } = cartSlice.actions;
+export const { toggleRecipeCartInclusion } = cartSlice.actions;
 
-export const selectCart = (state: RootState) => state.cart.selectedRecipeIds;
+export const selectCart = (state: RootState) => state.cart.selectedRecipeIdsMap;
 
 export default cartSlice.reducer;
