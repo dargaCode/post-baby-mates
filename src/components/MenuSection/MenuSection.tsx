@@ -4,10 +4,10 @@ import { selectCart } from "../Cart/Cart.slice";
 
 import styles from "./MenuSection.module.scss";
 
-import RecipeCard from "../RecipeCard/RecipeCard";
+import MenuDishCard from "../MenuDishCard/MenuDishCard";
 
 import { Category } from "../../utils/categoryUtils";
-import { RECIPES } from "../../utils/recipeData";
+import { DISHES } from "../../utils/dishData";
 
 interface Props {
   category: Category;
@@ -19,21 +19,19 @@ export default function MenuSection(props: Props): JSX.Element {
 
   const cart = useSelector(selectCart);
 
-  function renderRecipes() {
+  function renderDishes() {
     const {
       category: { id }
     } = props;
-    const categoryRecipes = RECIPES.filter(recipe => recipe.categoryId === id);
+    const categoryDishes = DISHES.filter(dish => dish.categoryId === id);
 
     return (
-      <div className={styles.recipes}>
-        {categoryRecipes.map((recipe, index) => {
-          const isSelected = !!cart[recipe.id];
+      <div className={styles.dishes}>
+        {categoryDishes.map((dish, index) => {
+          const isSelected = !!cart[dish.id];
 
-          const key = `${index}-${recipe.name}`;
-          return (
-            <RecipeCard key={key} recipe={recipe} isSelected={isSelected} />
-          );
+          const key = `${index}-${dish.name}`;
+          return <MenuDishCard key={key} dish={dish} isSelected={isSelected} />;
         })}
       </div>
     );
@@ -43,7 +41,7 @@ export default function MenuSection(props: Props): JSX.Element {
     <div className={styles.menuSection} id={category.id}>
       <h3 className={styles.name}>{name}</h3>
       <p className={styles.description}>{description}</p>
-      {renderRecipes()}
+      {renderDishes()}
     </div>
   );
 }

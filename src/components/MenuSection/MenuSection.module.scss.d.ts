@@ -2,7 +2,7 @@ export type Styles = {
   menuSection: string;
   name: string;
   description: string;
-  recipes: string;
+  dishes: string;
 };
 
 export type ClassNames = keyof Styles;

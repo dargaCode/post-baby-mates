@@ -1,5 +1,5 @@
 export type Styles = {
-  recipeCard: string;
+  menuDishCard: string;
   selected: string;
 
   leftColumn: string;

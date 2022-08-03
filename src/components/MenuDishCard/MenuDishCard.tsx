@@ -1,31 +1,31 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import styles from "./RecipeCard.module.scss";
+import styles from "./MenuDishCard.module.scss";
 
-import { toggleRecipeCartInclusion } from "../Cart/Cart.slice";
-import { Recipe } from "../../utils/recipeUtils";
+import { toggleDishCartInclusion } from "../Cart/Cart.slice";
+import { Dish } from "../../utils/dishUtils";
 
 interface Props {
-  recipe: Recipe;
+  dish: Dish;
   isSelected: boolean;
 }
 
-export default function RecipeCard(props: Props): JSX.Element {
+export default function MenuDishCard(props: Props): JSX.Element {
   const {
-    recipe: { id, name, description, note, link },
+    dish: { id, name, description, note, link },
     isSelected
   } = props;
 
   const dispatch = useDispatch();
 
   function handleClick() {
-    dispatch(toggleRecipeCartInclusion(id));
+    dispatch(toggleDishCartInclusion(id));
   }
 
   return (
     <div
-      className={`${styles.recipeCard} ${isSelected ? styles.selected : ""}`}
+      className={`${styles.menuDishCard} ${isSelected ? styles.selected : ""}`}
       onClick={handleClick}
     >
       <div className={styles.leftColumn}>

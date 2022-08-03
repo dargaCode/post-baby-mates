@@ -1,6 +1,6 @@
-import {CategoryNames} from "./categoryUtils";
+import { CategoryNames } from "./categoryUtils";
 
-export interface Recipe {
+export interface Dish {
   id: string;
   name: string;
   categoryId: CategoryNames;
