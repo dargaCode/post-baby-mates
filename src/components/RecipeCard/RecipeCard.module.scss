@@ -23,11 +23,18 @@
     }
 
     &.selected{
+<<<<<<< Updated upstream
         box-shadow: 0 2px 4px rgba(34, 89, 75, 0.5) inset;
 
         .icon {
           color: red;
         }
+=======
+        transition: box-shadow 0.3s ease-in-out;
+        box-shadow: 0 2px 8px rgba(34, 89, 75, 0.5) inset;
+        margin-left: 3px;
+        width: 497px;
+>>>>>>> Stashed changes
     }
 }
 
