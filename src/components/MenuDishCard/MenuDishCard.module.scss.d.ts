@@ -7,7 +7,7 @@ export type Styles = {
   description: string;
   note: string;
   rightColumn: string;
-  icon: string;
+  addRemove: string;
 };
 
 export type ClassNames = keyof Styles;

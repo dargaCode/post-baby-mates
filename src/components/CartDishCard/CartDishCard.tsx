@@ -22,8 +22,11 @@ export default function CartDishCard(props: Props): JSX.Element {
   }
 
   return (
-    <div className={styles.cartDishCard} onClick={handleClick}>
+    <div className={styles.cartDishCard}>
       <h4 className={styles.name}>{name}</h4>
+      <button type="button" className={styles.remove} onClick={handleClick}>
+        X
+      </button>
     </div>
   );
 }

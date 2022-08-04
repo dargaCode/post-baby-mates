@@ -35,7 +35,9 @@ export default function MenuDishCard(props: Props): JSX.Element {
         {link && <a href={link}>Click for more info</a>}
       </div>
       <div className={styles.rightColumn}>
-        <span className={styles.icon}>{isSelected ? "Remove" : "Add"}</span>
+        <button type="button" className={styles.addRemove}>
+          {isSelected ? "Remove" : "Add"}
+        </button>
       </div>
     </div>
   );
