@@ -24,10 +24,16 @@ export const cartSlice = createSlice({
     toggleDishCartInclusion: (state, action: PayloadAction<string>) => {
       state.selectedDishIdsMap[action.payload] = !state.selectedDishIdsMap[action.payload];
     },
+    removeDishFromCart: (state, action: PayloadAction<string>) => {
+      state.selectedDishIdsMap[action.payload] = false;
+    },
+    removeAllDishesFromCart:     (state) => {
+      state.selectedDishIdsMap = {};
+    },
   }
 });
 
-export const { toggleDishCartInclusion } = cartSlice.actions;
+export const { toggleDishCartInclusion, removeDishFromCart, removeAllDishesFromCart } = cartSlice.actions;
 
 export const selectCart = (state: RootState) => state.cart.selectedDishIdsMap;
 

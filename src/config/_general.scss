@@ -1,7 +1,8 @@
 @use 'layout';
 @use '../utils/break';
 
-$common-font-stack: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+$common-font-stack: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 
 *,
 *::before,
@@ -23,7 +24,9 @@ body {
 }
 
 .content-section {
-  height: calc(100vh - #{layout.$navigation-bar-height}); // must have an explicit height to allow scrolling;
+  height: calc(
+    100vh - #{layout.$navigation-bar-height}
+  ); // must have an explicit height to allow scrolling;
   overflow: auto; // allow scrollbar within content sections
 
   // make sure the scrollbar doesn't clip at the bottom
@@ -47,7 +50,7 @@ body {
 .container {
   margin: 0 auto;
   max-width: layout.$container-max-width;
-  overflow: hidden;  // no margin collapse w/children
+  overflow: hidden; // no margin collapse w/children
   padding: 88px 0;
 
   @include break.under(large) {
@@ -89,29 +92,4 @@ h4,
 h5,
 h6 {
   font-family: $common-font-stack;
-}
-
-h2 {
-  font-size: 40px;
-  margin: 0 0 40px;
-
-  @include break.under(large) {
-    font-size: 38px;
-    margin-bottom: 20px;
-  }
-
-  @include break.under(medium) {
-    font-size: 36px;
-    margin-bottom: 15px;
-  }
-
-  @include break.under(small) {
-    font-size: 33px;
-    margin-bottom: 12px;
-  }
-
-  @include break.under(tiny) {
-    font-size: 30px;
-    margin-bottom: 10px;
-  }
 }

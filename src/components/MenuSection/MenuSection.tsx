@@ -29,8 +29,8 @@ export default function MenuSection(props: Props): JSX.Element {
       <div className={styles.dishes}>
         {categoryDishes.map((dish, index) => {
           const isSelected = !!cart[dish.id];
-
           const key = `${index}-${dish.name}`;
+
           return <MenuDishCard key={key} dish={dish} isSelected={isSelected} />;
         })}
       </div>
