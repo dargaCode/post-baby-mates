@@ -18,7 +18,7 @@ function App(): JSX.Element {
     <div className={styles.app}>
       <Header />
       <div className={styles.outerFlexRow}>
-        <div>
+        <div className={styles.contentWrapper}>
           <About />
           <div className={styles.innerFlexRow}>
             <Navigation />

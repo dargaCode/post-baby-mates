@@ -8,13 +8,14 @@
   gap: 10px;
 
   .leftColumn {
-    width: 360px;
+    width: 320px;
   }
 
   .rightColumn {
-    width: 60px;
+    padding: 10px;
 
     .addRemove {
+      width: 20px;
       color: rgba(34, 89, 75);
       border: none;
     }

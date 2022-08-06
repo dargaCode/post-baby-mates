@@ -36,7 +36,7 @@ export default function MenuDishCard(props: Props): JSX.Element {
       </div>
       <div className={styles.rightColumn}>
         <button type="button" className={styles.addRemove}>
-          {isSelected ? "Remove" : "Add"}
+          {isSelected ? "[X]" : "Add"}
         </button>
       </div>
     </div>
