@@ -1,8 +1,8 @@
 .about {
-  padding-left: 41px;
-  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
   color: #777;
-  font-weight: 300;
-  font-size: 10pt;
   width: 75%;
 }

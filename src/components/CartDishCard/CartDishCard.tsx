@@ -25,7 +25,7 @@ export default function CartDishCard(props: Props): JSX.Element {
     <div className={styles.cartDishCard}>
       <h4 className={styles.name}>{name}</h4>
       <button type="button" className={styles.remove} onClick={handleClick}>
-        X
+        [X]
       </button>
     </div>
   );

@@ -1,5 +1,4 @@
 export type Styles = {
-  container: string;
   contentSection: string;
   invisibleButOutlineReadable: string;
 };

@@ -20,7 +20,7 @@ export default function Cart() {
 
   return (
     <div className={styles.cart}>
-      <h3>Cart</h3>
+      <h2>Cart</h2>
       {renderCart()}
     </div>
   );

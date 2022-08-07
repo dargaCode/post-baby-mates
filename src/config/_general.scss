@@ -9,6 +9,12 @@ $common-font-stack: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont,
 *::after {
   box-sizing: border-box;
   color: inherit;
+  padding: 0;
+  margin: 0;
+  font-family: $common-font-stack;
+  line-height: 1.5;
+  font-size: 11pt;
+  font-weight: 300;
 }
 
 html,
@@ -16,11 +22,40 @@ body {
   //overflow: hidden; // never scroll at this top level of the page
 }
 
-body {
+// used by headings that are needed for HTML5 document outline but not for visually browsing the site
+.invisible-but-outline-readable {
+  position: absolute;
+  left: -999em;
+  width: 1em;
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
   font-family: $common-font-stack;
-  line-height: 1.5;
-  margin: 0;
-  padding: 0;
+  font-weight: 550;
+}
+
+h1 {
+  font-size: 36pt;
+}
+
+h2 {
+  font-size: 26pt;
+}
+
+h3 {
+  font-size: 18pt;
+}
+
+h4 {
+  font-size: 13pt;
+}
+
+a {
+  text-decoration: none;
 }
 
 .content-section {
@@ -33,63 +68,4 @@ body {
   @include break.under(large) {
     height: layout.$content-section-height--break-large;
   }
-
-  @include break.under(medium) {
-    height: layout.$content-section-height--break-medium;
-  }
-
-  @include break.under(small) {
-    height: layout.$content-section-height--break-small;
-  }
-
-  @include break.under(tiny) {
-    height: layout.$content-section-height--break-tiny;
-  }
-}
-
-.container {
-  margin: 0 auto;
-  max-width: layout.$container-max-width;
-  overflow: hidden; // no margin collapse w/children
-  padding: 88px 0;
-
-  @include break.under(large) {
-    max-width: layout.$container-max-width--break-large;
-    padding: 40px 0;
-  }
-
-  @include break.under(medium) {
-    max-width: layout.$container-max-width--break-medium;
-  }
-
-  @include break.under(small) {
-    max-width: layout.$container-max-width--break-small;
-    padding: 18px 0;
-  }
-
-  @include break.under(tiny) {
-    max-width: layout.$container-max-width--break-tiny;
-  }
-}
-
-a {
-  text-decoration: none;
-}
-
-// used by headings that are needed for HTML5 document outline but not for visually browsing the site
-.invisible-but-outline-readable {
-  height: 0;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  width: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $common-font-stack;
 }

@@ -16,18 +16,27 @@ import About from "../About/About";
 function App(): JSX.Element {
   return (
     <div className={styles.app}>
-      <Header />
-      <div className={styles.outerFlexRow}>
-        <div className={styles.contentWrapper}>
-          <About />
-          <div className={styles.innerFlexRow}>
-            <Navigation />
-            <Menu />
+      <div className={styles.headerWrapper}>
+        <Header />
+      </div>
+      <div className={styles.aboutAndCartRow}>
+        <div className={styles.aboutColumn}>
+          <div className={styles.aboutWrapper}>
+            <About />
+          </div>
+          <div className={styles.navAndMenuRow}>
+            <div className={styles.navWrapper}>
+              <Navigation />
+            </div>
+            <div className={styles.menuWrapper}>
+              <Menu />
+            </div>
           </div>
         </div>
-        <Cart />
+        <div className={styles.cartWrapper}>
+          <Cart />
+        </div>
       </div>
-
       {/* TODO FOOTER? */}
     </div>
   );

@@ -1,6 +1,4 @@
 .navigation {
-  flex-basis: 500px;
-  flex-grow: 0.5;
 }
 
 ul {
@@ -8,9 +6,10 @@ ul {
 }
 
 li {
-  font-size: 16px;
   height: 40px;
-  font-weight: 500;
-  margin-bottom: 10px;
   text-transform: uppercase;
+
+  h3 {
+    font-size: 14pt;
+  }
 }

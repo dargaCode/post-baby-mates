@@ -1,12 +1,13 @@
 .cartDishCard {
-  padding: 10px;
   display: flex;
-
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+
+  padding: 0 12px;
 }
 
 .name {
-  font-size: 12pt;
   font-weight: 500;
 }
 

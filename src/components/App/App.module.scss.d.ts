@@ -1,7 +1,13 @@
 export type Styles = {
   app: string;
-  outerFlexRow: string;
-  innerFlexRow: string;
+  headerWrapper: string;
+  aboutAndCartRow: string;
+  aboutColumn: string;
+  aboutWrapper: string;
+  navAndMenuRow: string;
+  navWrapper: string;
+  menuWrapper: string;
+  cartWrapper: string;
 };
 
 export type ClassNames = keyof Styles;
