@@ -16,10 +16,11 @@
   }
 
   .rightColumn {
-    .addRemove {
+    .addEdit {
       width: 25px;
       color: rgba(34, 89, 75);
       border: none;
+      cursor: pointer;
     }
   }
 
@@ -33,10 +34,6 @@
     box-shadow: 0 2px 8px rgba(34, 89, 75, 0.5) inset;
     padding-left: 15px;
     padding-right: 9px;
-
-    .addRemove {
-      color: red;
-    }
   }
 }
 

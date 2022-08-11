@@ -7,12 +7,21 @@ immutable state based off those changes. */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../../app/store';
 
+import {DishIds} from "../../utils/dishData";
+
 interface CartState {
-  selectedDishIdsMap: {[key: string]: boolean};
+  selectedDishIdsMap: {[key in DishIds]: boolean};
+  dishNotesMap: {[key in DishIds]: string};
+}
+
+interface SetDishNotesPayload {
+  id: string;
+  notes: string;
 }
 
 const initialState: CartState = {
   selectedDishIdsMap: {},
+  dishNotesMap: {},
 };
 
 export const cartSlice = createSlice({
@@ -21,8 +30,8 @@ export const cartSlice = createSlice({
   initialState,
   // the `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    toggleDishCartInclusion: (state, action: PayloadAction<string>) => {
-      state.selectedDishIdsMap[action.payload] = !state.selectedDishIdsMap[action.payload];
+    addDishToCart: (state, action: PayloadAction<string>) => {
+      state.selectedDishIdsMap[action.payload] = true;
     },
     removeDishFromCart: (state, action: PayloadAction<string>) => {
       state.selectedDishIdsMap[action.payload] = false;
@@ -30,11 +39,16 @@ export const cartSlice = createSlice({
     removeAllDishesFromCart:     (state) => {
       state.selectedDishIdsMap = {};
     },
+    setDishNotes: (state, action: PayloadAction<SetDishNotesPayload>) => {
+      const {id, notes} = action.payload;
+
+      state.dishNotesMap[id] = notes;
+    },
   }
 });
 
-export const { toggleDishCartInclusion, removeDishFromCart, removeAllDishesFromCart } = cartSlice.actions;
+export const { addDishToCart, removeDishFromCart, removeAllDishesFromCart, setDishNotes } = cartSlice.actions;
 
-export const selectCart = (state: RootState) => state.cart.selectedDishIdsMap;
+export const selectCart = (state: RootState) => state.cart;
 
 export default cartSlice.reducer;

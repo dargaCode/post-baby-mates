@@ -1,7 +1,9 @@
 export type Styles = {
   cartDishCard: string;
   name: string;
-  remove: string;
+  edit: string;
+  notes: string;
+  notesLabel: string;
 };
 
 export type ClassNames = keyof Styles;

@@ -1,9 +1,10 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./CartDishCard.module.scss";
 
-import { removeDishFromCart } from "../Cart/Cart.slice";
+import { selectCart } from "../Cart/Cart.slice";
+import { openModalForDish } from "../AddEditDishModal/AddEditDishModal.slice";
 import { Dish } from "../../utils/dishUtils";
 
 interface Props {
@@ -16,17 +17,39 @@ export default function CartDishCard(props: Props): JSX.Element {
   } = props;
 
   const dispatch = useDispatch();
+  const { dishNotesMap } = useSelector(selectCart);
 
   function handleClick() {
-    dispatch(removeDishFromCart(id));
+    dispatch(openModalForDish(id));
+  }
+
+  function renderNotes(): JSX.Element | null {
+    const notes = dishNotesMap[id];
+
+    const buttonNode = (
+      <button type="button" className={styles.edit} onClick={handleClick}>
+        {notes ? "Edit" : "Add notes"}
+      </button>
+    );
+
+    return (
+      <div className={styles.notes}>
+        {notes && (
+          <p id="notes" className={styles.notes}>
+            <span className={styles.notesLabel}>Notes:</span>
+            {notes}
+            <span>{buttonNode}</span>
+          </p>
+        )}
+        {!notes && buttonNode}
+      </div>
+    );
   }
 
   return (
-    <div className={styles.cartDishCard}>
+    <div className={styles.cartDishCard} onClick={handleClick}>
       <h4 className={styles.name}>{name}</h4>
-      <button type="button" className={styles.remove} onClick={handleClick}>
-        [X]
-      </button>
+      {renderNotes()}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectCart } from "./Cart.slice";
+import { useDispatch, useSelector } from "react-redux";
+import { removeAllDishesFromCart, selectCart } from "./Cart.slice";
 
 import styles from "./Cart.module.scss";
 
@@ -8,11 +8,16 @@ import { DISHES } from "../../utils/dishData";
 import CartDishCard from "../CartDishCard/CartDishCard";
 
 export default function Cart() {
-  const cart = useSelector(selectCart);
+  const { selectedDishIdsMap } = useSelector(selectCart);
+  const dispatch = useDispatch();
 
-  function renderCart() {
-    const cartDishes = DISHES.filter(dish => cart[dish.id]);
+  const cartDishes = DISHES.filter(dish => selectedDishIdsMap[dish.id]);
 
+  function handleClearCart() {
+    dispatch(removeAllDishesFromCart());
+  }
+
+  function renderDishes() {
     return cartDishes.map(cartDish => (
       <CartDishCard key={cartDish.id} dish={cartDish} />
     ));
@@ -20,8 +25,19 @@ export default function Cart() {
 
   return (
     <div className={styles.cart}>
-      <h2>Cart</h2>
-      {renderCart()}
+      <div>
+        <h2>Cart</h2>
+        <div className={styles.dishes}>{renderDishes()}</div>
+      </div>
+      {!!cartDishes.length && (
+        <button
+          type="button"
+          className={styles.clearCart}
+          onClick={handleClearCart}
+        >
+          Clear Cart
+        </button>
+      )}
     </div>
   );
 }

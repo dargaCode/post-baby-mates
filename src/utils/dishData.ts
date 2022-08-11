@@ -175,3 +175,7 @@ export const DISHES_BY_ID: DishDict = DISHES.reduce((dictionary, dish) => {
 
   return { ...dictionary, [id]: dish };
 }, {});
+
+const DISH_IDS = DISHES.map(({ id }) => id);
+
+export type DishIds = typeof DISH_IDS[number];

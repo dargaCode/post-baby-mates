@@ -1,32 +1,42 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./MenuDishCard.module.scss";
 
-import { toggleDishCartInclusion } from "../Cart/Cart.slice";
+import { removeDishFromCart, selectCart } from "../Cart/Cart.slice";
 import { Dish } from "../../utils/dishUtils";
+import { openModalForDish } from "../AddEditDishModal/AddEditDishModal.slice";
 
 interface Props {
   dish: Dish;
-  isSelected: boolean;
 }
 
 export default function MenuDishCard(props: Props): JSX.Element {
   const {
-    dish: { id, name, description, note, link },
-    isSelected
+    dish: { id, name, description, note, link }
   } = props;
 
   const dispatch = useDispatch();
+  const { selectedDishIdsMap } = useSelector(selectCart);
 
-  function handleClick() {
-    dispatch(toggleDishCartInclusion(id));
+  const isSelected = !!selectedDishIdsMap[id];
+
+  function handleClickCard() {
+    dispatch(openModalForDish(id));
+  }
+
+  function handleClickEdit() {
+    if (isSelected) {
+      dispatch(removeDishFromCart(id));
+    } else {
+      handleClickCard();
+    }
   }
 
   return (
     <div
       className={`${styles.menuDishCard} ${isSelected ? styles.selected : ""}`}
-      onClick={handleClick}
+      onClick={handleClickCard}
     >
       <div className={styles.leftColumn}>
         <h4 className={styles.name}>{name}</h4>
@@ -35,8 +45,12 @@ export default function MenuDishCard(props: Props): JSX.Element {
         {link && <a href={link}>Click for more info</a>}
       </div>
       <div className={styles.rightColumn}>
-        <button type="button" className={styles.addRemove}>
-          {isSelected ? "[X]" : "Add"}
+        <button
+          type="button"
+          className={styles.addEdit}
+          onClick={handleClickEdit}
+        >
+          {isSelected ? "Edit" : "Add"}
         </button>
       </div>
     </div>
