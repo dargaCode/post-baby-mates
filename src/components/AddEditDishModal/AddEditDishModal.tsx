@@ -73,7 +73,7 @@ export default function AddEditDishModal(props: Props): JSX.Element {
   function renderInput() {
     return (
       <div className={styles.inputWrapper}>
-        <label htmlFor="notes-input">Notes</label>
+        <div className={styles.notesHeader}><label  htmlFor="notes-input">Special Instructions</label></div>
         <textarea
           id="notes-input"
           className={styles.notes}

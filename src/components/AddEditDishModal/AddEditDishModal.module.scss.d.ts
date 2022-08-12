@@ -6,10 +6,12 @@ export type Styles = {
   details: string;
   name: string;
   description: string;
+  notesHeader: string;
   note: string;
   inputWrapper: string;
   notes: string;
   footer: string;
+  
 };
 
 export type ClassNames = keyof Styles;
