@@ -1,5 +1,7 @@
 export type Styles = {
   addEditDishModal: string;
+  modalCard: string;
+  header: string;
   closeButton: string;
   details: string;
   name: string;
@@ -7,6 +9,7 @@ export type Styles = {
   note: string;
   inputWrapper: string;
   notes: string;
+  footer: string;
 };
 
 export type ClassNames = keyof Styles;

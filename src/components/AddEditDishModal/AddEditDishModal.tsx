@@ -44,6 +44,10 @@ export default function AddEditDishModal(props: Props): JSX.Element {
     dispatch(closeModal());
   }
 
+  function handleCardClick(event: React.MouseEvent<HTMLDivElement>) {
+    event.stopPropagation();
+  }
+
   function handleRemove() {
     dispatch(removeDishFromCart(id));
     dispatch(closeModal());
@@ -55,48 +59,66 @@ export default function AddEditDishModal(props: Props): JSX.Element {
     dispatch(closeModal());
   }
 
-  return (
-    <div className={styles.addEditDishModal}>
-      <header>
-        <button
-          type="button"
-          className={styles.closeButton}
-          onClick={handleCancel}
-        >
-          [X]
-        </button>
-      </header>
-      <main>
-        <div className={styles.details}>
-          <h4 className={styles.name}>{name}</h4>
-          <p className={styles.description}>{description}</p>
-          <p className={styles.note}>{note}</p>
-          {link && <a href={link}>Click for more info</a>}
-        </div>
-        <div className={styles.inputWrapper}>
-          <label htmlFor="notes-input">Notes</label>
-          <textarea
-            id="notes-input"
-            className={styles.notes}
-            placeholder="Please don't hesitate to add any special requests!"
-            value={currentNotes}
-            onChange={handleChangeNotes}
-          />
-        </div>
-      </main>
-      {isSelected && (
-        <button type="button" onClick={handleRemove}>
-          Remove Item
-        </button>
-      )}
-      <footer>
-        <button type="button" onClick={handleCancel}>
-          Cancel
-        </button>
+  function renderDishDetails() {
+    return (
+      <div className={styles.details}>
+        <h4 className={styles.name}>{name}</h4>
+        <p className={styles.description}>{description}</p>
+        <p className={styles.note}>{note}</p>
+        {link && <a href={link}>Click for more info</a>}
+      </div>
+    );
+  }
+
+  function renderInput() {
+    return (
+      <div className={styles.inputWrapper}>
+        <label htmlFor="notes-input">Notes</label>
+        <textarea
+          id="notes-input"
+          className={styles.notes}
+          placeholder="Please don't hesitate to add any special requests!"
+          value={currentNotes}
+          onChange={handleChangeNotes}
+        />
+      </div>
+    );
+  }
+
+  function renderFooter() {
+    return (
+      <footer className={styles.footer}>
+        {isSelected && (
+          <button type="button" onClick={handleRemove}>
+            Remove Item
+          </button>
+        )}
+
         <button type="button" onClick={handleSubmit}>
           Save
         </button>
       </footer>
+    );
+  }
+
+  return (
+    <div className={styles.addEditDishModal} onClick={handleCancel}>
+      <div className={styles.modalCard} onClick={handleCardClick}>
+        <header className={styles.header}>
+          <button
+            type="button"
+            className={styles.closeButton}
+            onClick={handleCancel}
+          >
+            [X]
+          </button>
+        </header>
+        <main>
+          {renderDishDetails()}
+          {renderInput()}
+        </main>
+        {renderFooter()}
+      </div>
     </div>
   );
 }

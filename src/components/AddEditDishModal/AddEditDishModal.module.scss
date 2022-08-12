@@ -1,4 +1,23 @@
 .addEditDishModal {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  align-items: center;
+
+  background: RGBA(0, 0, 0, 0.7);
+
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modalCard {
+  width: 200px;
+  background: white;
+}
+
+.header {
 }
 
 .closeButton {
@@ -20,4 +39,13 @@
 }
 
 .notes {
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+
+  button:only-child {
+    margin-left: auto;
+  }
 }
