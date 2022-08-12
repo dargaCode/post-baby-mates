@@ -1,14 +1,22 @@
+$header-height: 60px;
+
 .app {
 }
 
 .headerWrapper {
-  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: $header-height;
+  width: 100%;
+  background: white;
 }
 
 .aboutAndCartRow {
   display: flex;
   gap: 30px;
 
+  margin-top: $header-height;
   padding-left: 30px;
 }
 
