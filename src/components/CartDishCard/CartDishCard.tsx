@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./CartDishCard.module.scss";
+import edit from "../../img/icons/edit.svg";
 
 import { selectCart } from "../Cart/Cart.slice";
 import { openModalForDish } from "../AddEditDishModal/AddEditDishModal.slice";
@@ -28,7 +29,9 @@ export default function CartDishCard(props: Props): JSX.Element {
 
     const buttonNode = (
       <button type="button" className={styles.edit} onClick={handleClick}>
-        {notes ? "Edit" : "Add notes"}
+        
+        {notes ? "" : "Add Notes"}
+        <img src={edit} className={styles.editIcon} alt="Edit" /> 
       </button>
     );
 

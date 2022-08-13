@@ -90,13 +90,13 @@ export default function AddEditDishModal(props: Props): JSX.Element {
     return (
       <footer className={styles.footer}>
         {isSelected && (
-          <button type="button" onClick={handleRemove}>
-            Remove Item
+          <button type="button" className={styles.removeButton} onClick={handleRemove}>
+            REMOVE ITEM
           </button>
         )}
 
-        <button type="button" onClick={handleSubmit}>
-          Save
+        <button type="button" className={styles.saveButton}  onClick={handleSubmit}>
+          SAVE
         </button>
       </footer>
     );

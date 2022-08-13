@@ -26,7 +26,7 @@ export default function Cart() {
   return (
     <div className={styles.cart}>
       <div>
-        <h2>Cart</h2>
+        <div className={styles.cartTitle}>Your Items</div>
         <div className={styles.dishes}>{renderDishes()}</div>
       </div>
       {!!cartDishes.length && (

@@ -2,6 +2,7 @@ export type Styles = {
   cartDishCard: string;
   name: string;
   edit: string;
+  editIcon: string;
   notes: string;
   notesLabel: string;
 };

@@ -14,4 +14,16 @@
 
 .clearCart {
   border: none;
+  color: red;
+  background-color: white;
+  font-weight: 500;
+  font-size: 11pt;
+  cursor: pointer;
+}
+
+.cartTitle{
+  font-size: 18pt;
+  font-weight: 400;
+  margin-bottom: 8px;
+  
 }

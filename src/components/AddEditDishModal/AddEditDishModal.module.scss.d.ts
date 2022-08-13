@@ -12,6 +12,8 @@ export type Styles = {
   inputWrapper: string;
   notes: string;
   footer: string;
+  saveButton: string;
+  removeButton: string;
   
 };
 
