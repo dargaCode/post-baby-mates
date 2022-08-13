@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ForwardedRef } from "react";
 
 import { useSelector } from "react-redux";
 import styles from "./Menu.module.scss";
@@ -18,38 +18,48 @@ interface Props {
   dishesByCategoryIdMap: DishesByCategoryIdMap;
 }
 
-export default function Menu(props: Props): JSX.Element {
-  const { categories, dishesByIdMap, dishesByCategoryIdMap } = props;
+const Menu = React.forwardRef(
+  (props: Props, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
+    const { categories, dishesByIdMap, dishesByCategoryIdMap } = props;
 
-  const { isModalOpen, modalEditingDishId } = useSelector(
-    selectAddEditDishModal
-  );
-  const { dishNotesMap } = useSelector(selectCart);
+    const { isModalOpen, modalEditingDishId } = useSelector(
+      selectAddEditDishModal
+    );
+    const { dishNotesMap } = useSelector(selectCart);
 
-  function renderAddEditDishModal(): JSX.Element | null {
-    if (!isModalOpen || !modalEditingDishId) {
-      return null;
+    function renderAddEditDishModal(): JSX.Element | null {
+      if (!isModalOpen || !modalEditingDishId) {
+        return null;
+      }
+
+      const dish = dishesByIdMap[modalEditingDishId];
+      const notes = dishNotesMap[modalEditingDishId];
+
+      return <AddEditDishModal dish={dish} notes={notes} />;
     }
 
-    const dish = dishesByIdMap[modalEditingDishId];
-    const notes = dishNotesMap[modalEditingDishId];
+    return (
+      <div ref={ref} className={styles.menu}>
+        <h2 className="invisible-but-outline-readable">Menu</h2>
+        {renderAddEditDishModal()}
+        {categories.map((category, index) => {
+          const { name, id } = category;
+          const key = `${index}-${name}`;
+          const categoryDishes = dishesByCategoryIdMap[id];
 
-    return <AddEditDishModal dish={dish} notes={notes} />;
+          return (
+            <MenuSection
+              key={key}
+              category={category}
+              dishes={categoryDishes}
+            />
+          );
+        })}
+      </div>
+    );
   }
+);
 
-  return (
-    <div className={styles.menu}>
-      <h2 className="invisible-but-outline-readable">Menu</h2>
-      {renderAddEditDishModal()}
-      {categories.map((category, index) => {
-        const { name, id } = category;
-        const key = `${index}-${name}`;
-        const categoryDishes = dishesByCategoryIdMap[id];
+Menu.displayName = "Menu";
 
-        return (
-          <MenuSection key={key} category={category} dishes={categoryDishes} />
-        );
-      })}
-    </div>
-  );
-}
+export default Menu;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 
 import { Provider } from "react-redux";
@@ -20,6 +20,8 @@ import {
 import { CATEGORIES } from "../../utils/categoryData";
 
 function App(): JSX.Element {
+  const menuRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className={styles.app}>
       <div className={styles.headerWrapper}>
@@ -36,6 +38,7 @@ function App(): JSX.Element {
             </div>
             <div className={styles.menuWrapper}>
               <Menu
+                ref={menuRef}
                 categories={CATEGORIES}
                 dishesByIdMap={DISHES_BY_ID_MAP}
                 dishesByCategoryIdMap={DISHES_BY_CATEGORY_ID_MAP}
