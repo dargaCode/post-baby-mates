@@ -1,4 +1,4 @@
-$header-height: 60px;
+@use '../../config/layout' as layout;
 
 .app {
 }
@@ -7,33 +7,34 @@ $header-height: 60px;
   position: fixed;
   top: 0;
   left: 0;
-  height: $header-height;
+  height: layout.$header-height;
   width: 100%;
   background: white;
 }
 
 .aboutAndCartRow {
   display: flex;
-  gap: 30px;
+  gap: layout.$horizontal-gap;
 
-  margin-top: $header-height;
-  padding-left: 30px;
+  margin-top: layout.$header-height;
+  padding-left: layout.$about-left-padding;
 }
 
 .aboutColumn {
 }
 
 .aboutWrapper {
-  padding: 30px 0 44px;
 }
 
 .navAndMenuRow {
   display: flex;
-  gap: 30px;
+  gap: layout.$horizontal-gap;
+
+  padding-top: layout.$vertical-gap;
 }
 
 .navWrapper {
-  flex-basis: 240px;
+  flex-basis: layout.$nav-width;
   flex-shrink: 0.5;
 }
 
@@ -42,6 +43,6 @@ $header-height: 60px;
 }
 
 .cartWrapper {
-  width: 280px;
+  width: layout.$cart-width;
   flex-shrink: 0;
 }
