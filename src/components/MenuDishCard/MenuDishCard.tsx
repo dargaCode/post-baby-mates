@@ -2,10 +2,13 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./MenuDishCard.module.scss";
+import add from "../../img/icons/add.svg";
+import edit from "../../img/icons/edit.svg";
 
 import { removeDishFromCart, selectCart } from "../Cart/Cart.slice";
 import { Dish } from "../../utils/dishUtils";
 import { openModalForDish } from "../AddEditDishModal/AddEditDishModal.slice";
+
 
 interface Props {
   dish: Dish;
@@ -50,7 +53,7 @@ export default function MenuDishCard(props: Props): JSX.Element {
           className={styles.addEdit}
           onClick={handleClickEdit}
         >
-          {isSelected ? "Edit" : "Add"}
+          {isSelected ? <img src={edit} className={styles.editButton} alt="Edit" /> : <img src={add} className={styles.addButton} alt="Add" />}
         </button>
       </div>
     </div>

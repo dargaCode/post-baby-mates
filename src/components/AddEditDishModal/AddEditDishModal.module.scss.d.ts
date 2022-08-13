@@ -3,6 +3,7 @@ export type Styles = {
   modalCard: string;
   header: string;
   closeButton: string;
+  closeIcon:string;
   details: string;
   name: string;
   description: string;

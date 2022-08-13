@@ -8,6 +8,8 @@ export type Styles = {
   note: string;
   rightColumn: string;
   addEdit: string;
+  addButton: string;
+  editButton: string;
 };
 
 export type ClassNames = keyof Styles;

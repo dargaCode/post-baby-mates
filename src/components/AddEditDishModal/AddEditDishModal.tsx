@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./AddEditDishModal.module.scss";
+import close from "../../img/icons/close.svg";
 
 import { Dish } from "../../utils/dishUtils";
 import { closeModal } from "./AddEditDishModal.slice";
@@ -110,7 +111,7 @@ export default function AddEditDishModal(props: Props): JSX.Element {
             className={styles.closeButton}
             onClick={handleCancel}
           >
-            [X]
+            <img src={close} className={styles.closeIcon} alt="Close" /> 
           </button>
         </header>
         <main>
