@@ -74,7 +74,9 @@ export default function AddEditDishModal(props: Props): JSX.Element {
   function renderInput() {
     return (
       <div className={styles.inputWrapper}>
-        <div className={styles.notesHeader}><label  htmlFor="notes-input">Special Instructions</label></div>
+        <div className={styles.notesHeader}>
+          <label htmlFor="notes-input">Special Instructions</label>
+        </div>
         <textarea
           id="notes-input"
           className={styles.notes}
@@ -90,12 +92,20 @@ export default function AddEditDishModal(props: Props): JSX.Element {
     return (
       <footer className={styles.footer}>
         {isSelected && (
-          <button type="button" className={styles.removeButton} onClick={handleRemove}>
+          <button
+            type="button"
+            className={styles.removeButton}
+            onClick={handleRemove}
+          >
             REMOVE ITEM
           </button>
         )}
 
-        <button type="button" className={styles.saveButton}  onClick={handleSubmit}>
+        <button
+          type="button"
+          className={styles.saveButton}
+          onClick={handleSubmit}
+        >
           SAVE
         </button>
       </footer>
@@ -111,7 +121,7 @@ export default function AddEditDishModal(props: Props): JSX.Element {
             className={styles.closeButton}
             onClick={handleCancel}
           >
-            <img src={close} className={styles.closeIcon} alt="Close" /> 
+            <img src={close} className={styles.closeIcon} alt="Close" />
           </button>
         </header>
         <main>

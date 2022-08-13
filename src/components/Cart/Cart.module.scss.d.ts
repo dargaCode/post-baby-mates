@@ -2,7 +2,7 @@ export type Styles = {
   cart: string;
   dishes: string;
   clearCart: string;
-  cartTitle:string;
+  cartTitle: string;
 };
 
 export type ClassNames = keyof Styles;

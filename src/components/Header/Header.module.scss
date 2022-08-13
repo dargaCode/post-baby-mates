@@ -11,7 +11,8 @@
 }
 
 .cartIcon {
-  filter: invert(100%) sepia(6%) saturate(24%) hue-rotate(146deg) brightness(107%) contrast(107%);
+  filter: invert(100%) sepia(6%) saturate(24%) hue-rotate(146deg)
+    brightness(107%) contrast(107%);
   height: 18px;
   margin-right: 6px;
 }
@@ -30,5 +31,4 @@
   font-weight: 400;
   font-size: 11pt;
   cursor: pointer;
-
 }

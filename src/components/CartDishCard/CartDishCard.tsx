@@ -29,9 +29,9 @@ export default function CartDishCard(props: Props): JSX.Element {
 
     const buttonNode = (
       <button type="button" className={styles.edit} onClick={handleClick}>
-        
         {notes ? "" : "Add Notes"}
-        <img src={edit} className={styles.editIcon} alt="Edit" /> 
+
+        <img src={edit} className={styles.editIcon} alt="Edit" />
       </button>
     );
 

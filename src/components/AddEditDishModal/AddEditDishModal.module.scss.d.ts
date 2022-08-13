@@ -3,7 +3,7 @@ export type Styles = {
   modalCard: string;
   header: string;
   closeButton: string;
-  closeIcon:string;
+  closeIcon: string;
   details: string;
   name: string;
   description: string;
@@ -14,7 +14,6 @@ export type Styles = {
   footer: string;
   saveButton: string;
   removeButton: string;
-  
 };
 
 export type ClassNames = keyof Styles;

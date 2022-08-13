@@ -1,7 +1,6 @@
 export type Styles = {
   menuDishCard: string;
   selected: string;
-
   leftColumn: string;
   name: string;
   description: string;

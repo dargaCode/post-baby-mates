@@ -9,7 +9,6 @@ import { removeDishFromCart, selectCart } from "../Cart/Cart.slice";
 import { Dish } from "../../utils/dishUtils";
 import { openModalForDish } from "../AddEditDishModal/AddEditDishModal.slice";
 
-
 interface Props {
   dish: Dish;
 }
@@ -53,7 +52,11 @@ export default function MenuDishCard(props: Props): JSX.Element {
           className={styles.addEdit}
           onClick={handleClickEdit}
         >
-          {isSelected ? <img src={edit} className={styles.editButton} alt="Edit" /> : <img src={add} className={styles.addButton} alt="Add" />}
+          {isSelected ? (
+            <img src={edit} className={styles.editButton} alt="Edit" />
+          ) : (
+            <img src={add} className={styles.addButton} alt="Add" />
+          )}
         </button>
       </div>
     </div>

@@ -9,7 +9,9 @@ export default function Header(): JSX.Element {
     <header className={styles.header}>
       <h1 className="invisible-but-outline-readable">Post-Baby-Mates</h1>
       <img src={logo} className={styles.logo} alt="Post-baby-mates logo" />
-      <div className={styles.cart}>  <img src={cart} className={styles.cartIcon} alt="Cart" />  Cart </div>
+      <div className={styles.cart}>
+        <img src={cart} className={styles.cartIcon} alt="Cart" /> Cart{" "}
+      </div>
     </header>
   );
 }
