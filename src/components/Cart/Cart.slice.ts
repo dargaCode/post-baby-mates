@@ -7,11 +7,11 @@ immutable state based off those changes. */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../../app/store';
 
-import {DishIds} from "../../utils/dishData";
+import {BooleansByDishIdMap, StringsByDishIdMap} from "../../utils/dishData";
 
 interface CartState {
-  selectedDishIdsMap: {[key in DishIds]: boolean};
-  dishNotesMap: {[key in DishIds]: string};
+  selectedDishIdsMap: BooleansByDishIdMap;
+  dishNotesMap: StringsByDishIdMap;
 }
 
 interface SetDishNotesPayload {

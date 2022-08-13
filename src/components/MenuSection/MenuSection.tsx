@@ -5,25 +5,20 @@ import styles from "./MenuSection.module.scss";
 import MenuDishCard from "../MenuDishCard/MenuDishCard";
 
 import { Category } from "../../utils/categoryUtils";
-import { DISHES } from "../../utils/dishData";
+import { Dish } from "../../utils/dishUtils";
 
 interface Props {
   category: Category;
+  dishes: Dish[];
 }
 
-export default function MenuSection(props: Props): JSX.Element {
-  const { category } = props;
+export default function MenuSection({ category, dishes }: Props): JSX.Element {
   const { name, description } = category;
 
   function renderDishes() {
-    const {
-      category: { id }
-    } = props;
-    const categoryDishes = DISHES.filter(dish => dish.categoryId === id);
-
     return (
       <div className={styles.dishes}>
-        {categoryDishes.map((dish, index) => {
+        {dishes.map((dish, index) => {
           const key = `${index}-${dish.name}`;
 
           return <MenuDishCard key={key} dish={dish} />;

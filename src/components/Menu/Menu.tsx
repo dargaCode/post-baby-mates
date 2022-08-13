@@ -6,12 +6,21 @@ import styles from "./Menu.module.scss";
 import MenuSection from "../MenuSection/MenuSection";
 import AddEditDishModal from "../AddEditDishModal/AddEditDishModal";
 
-import { CATEGORIES } from "../../utils/categoryData";
 import { selectAddEditDishModal } from "../AddEditDishModal/AddEditDishModal.slice";
-import { DISHES_BY_ID } from "../../utils/dishData";
 import { selectCart } from "../Cart/Cart.slice";
 
-export default function Menu(): JSX.Element {
+import { DishesByCategoryIdMap, DishesByIdMap } from "../../utils/dishData";
+import { Category } from "../../utils/categoryUtils";
+
+interface Props {
+  categories: Category[];
+  dishesByIdMap: DishesByIdMap;
+  dishesByCategoryIdMap: DishesByCategoryIdMap;
+}
+
+export default function Menu(props: Props): JSX.Element {
+  const { categories, dishesByIdMap, dishesByCategoryIdMap } = props;
+
   const { isModalOpen, modalEditingDishId } = useSelector(
     selectAddEditDishModal
   );
@@ -22,7 +31,7 @@ export default function Menu(): JSX.Element {
       return null;
     }
 
-    const dish = DISHES_BY_ID[modalEditingDishId];
+    const dish = dishesByIdMap[modalEditingDishId];
     const notes = dishNotesMap[modalEditingDishId];
 
     return <AddEditDishModal dish={dish} notes={notes} />;
@@ -32,11 +41,14 @@ export default function Menu(): JSX.Element {
     <div className={styles.menu}>
       <h2 className="invisible-but-outline-readable">Menu</h2>
       {renderAddEditDishModal()}
-      {CATEGORIES.map((category, index) => {
-        const { name } = category;
+      {categories.map((category, index) => {
+        const { name, id } = category;
         const key = `${index}-${name}`;
+        const categoryDishes = dishesByCategoryIdMap[id];
 
-        return <MenuSection key={key} category={category} />;
+        return (
+          <MenuSection key={key} category={category} dishes={categoryDishes} />
+        );
       })}
     </div>
   );

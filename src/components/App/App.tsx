@@ -13,6 +13,12 @@ import Navigation from "../Navigation/Navigation";
 import Menu from "../Menu/Menu";
 import About from "../About/About";
 
+import {
+  DISHES_BY_ID_MAP,
+  DISHES_BY_CATEGORY_ID_MAP
+} from "../../utils/dishData";
+import { CATEGORIES } from "../../utils/categoryData";
+
 function App(): JSX.Element {
   return (
     <div className={styles.app}>
@@ -29,7 +35,11 @@ function App(): JSX.Element {
               <Navigation />
             </div>
             <div className={styles.menuWrapper}>
-              <Menu />
+              <Menu
+                categories={CATEGORIES}
+                dishesByIdMap={DISHES_BY_ID_MAP}
+                dishesByCategoryIdMap={DISHES_BY_CATEGORY_ID_MAP}
+              />
             </div>
           </div>
         </div>
