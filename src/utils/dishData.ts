@@ -5,7 +5,7 @@ import { CATEGORIES } from "./categoryData";
 export const DISHES: Dish[] = [
   {
     id: "chicken-soup",
-    name: "Classic Chicken Noodle",
+    name: "Classic Chicken Noodle Soup",
     categoryId: CategoryIds.Soup,
     description:
       "Chicken thighs, leeks, celery, carrot, spinach, and unenriched egg noodles",
@@ -13,7 +13,7 @@ export const DISHES: Dish[] = [
   },
   {
     id: "tortellini-soup",
-    name: "Chicken Tortellini",
+    name: "Chicken Tortellini Soup",
     categoryId: CategoryIds.Soup,
     description:
       "Chicken thighs, onion, carrot, celery, Buitoni brand tortellini, tomato, spinach, cream, and parmesan",
@@ -45,7 +45,7 @@ export const DISHES: Dish[] = [
   },
   {
     id: "mushroom-soup",
-    name: "Thicc Mushroom and Wild Rice",
+    name: "Mushroom and Wild Rice Soup",
     categoryId: CategoryIds.Soup,
     description:
       "Chicken thighs, onions, carrots, celery, mushrooms (pureed and chunky), butter, cream, wild rice",
