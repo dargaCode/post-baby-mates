@@ -125,6 +125,13 @@ export const DISHES: Dish[] = [
       "Note: The sourdough starter will have been fed with unenriched flour for the last couple cycles, however there may be trace amounts of regular flour still kicking around in the starter - would amount to no more than 1-2 tsp of enriched flour in the loaf at most. If this is still a risk factor then let's skip this one :) "
   },
   {
+    id: "italian-bread",
+    name: "Herby Italian Bread",
+    categoryId: CategoryNames.Baked,
+    description: "Soft, fluffy bread with herbs baked into it, perfect for dipping into soup or into olive oil and vinegar",
+    note:""
+  },
+  {
     id: "cornbread",
     name: "Mini Cornbread Muffins",
     categoryId: CategoryNames.Baked,
