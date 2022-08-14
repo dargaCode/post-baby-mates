@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 
 import styles from "./Navigation.module.scss";
 
@@ -25,8 +25,12 @@ export default function Navigation({ menuDiv }: Props): JSX.Element | null {
     }
   }
 
-  const listItems = useMemo(() => {
+  function renderListItems() {
     return CATEGORIES.map(({ name, id }) => {
+      if (!menuDiv) {
+        return null;
+      }
+
       const menuSectionDiv = menuDiv.querySelector(`#${id}`);
 
       if (!menuSectionDiv) {
@@ -44,12 +48,12 @@ export default function Navigation({ menuDiv }: Props): JSX.Element | null {
         </li>
       );
     });
-  }, []);
+  }
 
   return (
     <nav className={styles.navigation}>
       <h2 className="invisible-but-outline-readable">Navigation</h2>
-      <ul>{listItems}</ul>
+      <ul>{renderListItems()}</ul>
     </nav>
   );
 }
