@@ -7,14 +7,25 @@
 }
 
 ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   list-style: none;
 }
 
 li {
-  height: 40px;
   text-transform: uppercase;
+  width: fit-content;
 
   h3 {
     font-size: 14pt;
+    border-bottom: 3px solid white;
+    padding: 0 8px;
+  }
+
+  &.active {
+    h3 {
+      border-color: black;
+    }
   }
 }
