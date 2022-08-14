@@ -41,7 +41,7 @@ function App(): JSX.Element {
           </div>
           <div className={styles.navAndMenuRow}>
             <div className={styles.navWrapper}>
-              <Navigation menuDiv={menuDiv} />
+              <Navigation categories={CATEGORIES} menuDiv={menuDiv} />
             </div>
             <div className={styles.menuWrapper}>
               <Menu

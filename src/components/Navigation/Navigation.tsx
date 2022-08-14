@@ -2,16 +2,20 @@ import React from "react";
 
 import styles from "./Navigation.module.scss";
 
-import { CATEGORIES } from "../../utils/categoryData";
+import { Category } from "../../utils/categoryUtils";
 
 /* compensate for header height */
 const SCROLL_TO_SECTION_OFFSET = -87;
 
 interface Props {
+  categories: Category[];
   menuDiv?: HTMLDivElement;
 }
 
-export default function Navigation({ menuDiv }: Props): JSX.Element | null {
+export default function Navigation({
+  categories,
+  menuDiv
+}: Props): JSX.Element | null {
   if (!menuDiv) {
     return null;
   }
@@ -26,7 +30,7 @@ export default function Navigation({ menuDiv }: Props): JSX.Element | null {
   }
 
   function renderListItems() {
-    return CATEGORIES.map(({ name, id }) => {
+    return categories.map(({ name, id }) => {
       if (!menuDiv) {
         return null;
       }
