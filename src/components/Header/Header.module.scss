@@ -10,13 +10,6 @@
   height: 100%;
 }
 
-.cartIcon {
-  filter: invert(100%) sepia(6%) saturate(24%) hue-rotate(146deg)
-    brightness(107%) contrast(107%);
-  height: 18px;
-  margin-right: 6px;
-}
-
 .cart {
   display: flex;
   justify-content: center;
@@ -31,4 +24,11 @@
   font-weight: 400;
   font-size: 11pt;
   cursor: pointer;
+}
+
+.cartIcon {
+  filter: invert(100%) sepia(6%) saturate(24%) hue-rotate(146deg)
+    brightness(107%) contrast(107%);
+  height: 18px;
+  margin-right: 6px;
 }
