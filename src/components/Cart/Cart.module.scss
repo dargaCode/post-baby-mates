@@ -1,11 +1,14 @@
+@use '../../config/layout' as layout;
+
 .cart {
   display: flex;
   flex-direction: column;
   gap: 10px;
-
-  border-left: 1px solid black;
-  height: 100%;
   padding: 12px;
+  padding-bottom: layout.$vertical-gap;
+  position: fixed;
+  height: layout.$cart-height;
+  overflow-y: scroll;
 }
 
 .dishes {
@@ -21,20 +24,19 @@
   cursor: pointer;
 }
 
-.cartTitle{
+.cartTitle {
   font-size: 18pt;
   font-weight: 400;
   margin-bottom: 4px;
-  
 }
 
-.deliverBy{
+.deliverBy {
   font-size: 11pt;
   font-weight: 300;
   color: #777;
   margin-bottom: 4px;
 }
-.cartDescription{
+.cartDescription {
   font-size: 11pt;
   font-weight: 450;
   color: #333;

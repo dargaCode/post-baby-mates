@@ -44,6 +44,7 @@
 }
 
 .cartWrapper {
-  width: layout.$cart-width;
   flex-shrink: 0;
+  width: layout.$cart-width;
+  border-left: 1px solid black;
 }
