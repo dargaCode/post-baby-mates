@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from "./Navigation.module.scss";
 
@@ -8,7 +8,7 @@ import { Category } from "../../utils/categoryUtils";
 
 /* compensate for header height */
 const SCROLL_TO_SECTION_OFFSET = -87;
-const ACTIVE_SECTION_THRESHOLD_OFFSET = 62;
+const ACTIVE_SECTION_THRESHOLD_OFFSET = 60;
 const THROTTLE_DELAY_MS = 200;
 
 interface Props {
@@ -20,7 +20,7 @@ export default function Navigation({
   categories,
   menuDiv
 }: Props): JSX.Element | null {
-  const [activeSectionIndex, setActiveSectionIndex] = useState<number>();
+  const [activeSectionIndex, setActiveSectionIndex] = useState<number>(-1);
 
   function handleWindowScroll() {
     const menuSectionDivs = categories.map(({ id }) => {
@@ -31,25 +31,29 @@ export default function Navigation({
       return menuDiv.querySelector(`#${id}`) as HTMLDivElement;
     });
 
-    // TODO refactor to reduce
-    let scrolledSectionCount = 0;
+    const nextActiveSectionIndex = menuSectionDivs.reduce(
+      (scrolledSectionCount: number, menuSectionDiv) => {
+        if (!menuSectionDiv) {
+          return -1;
+        }
 
-    menuSectionDivs.forEach(menuSectionDiv => {
-      if (!menuSectionDiv) {
-        return null;
-      }
-
-      if (menuSectionDiv) {
         const { bottom } = menuSectionDiv.getBoundingClientRect();
 
         if (bottom <= ACTIVE_SECTION_THRESHOLD_OFFSET) {
-          scrolledSectionCount += 1;
+          return scrolledSectionCount + 1;
         }
-      }
+        return scrolledSectionCount;
+      },
+      0
+    );
 
-      setActiveSectionIndex(scrolledSectionCount);
-    });
+    setActiveSectionIndex(nextActiveSectionIndex);
   }
+
+  /* make sure the function runs on mount */
+  useEffect(() => {
+    handleWindowScroll();
+  }, [menuDiv]);
 
   window.onscroll = () => {
     throttle(handleWindowScroll, THROTTLE_DELAY_MS);
