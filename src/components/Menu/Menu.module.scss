@@ -1,5 +1,8 @@
+@use '../../config/layout' as layout;
+
 .menu {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: layout.$vertical-gap;
+  padding-bottom: layout.$vertical-gap;
 }

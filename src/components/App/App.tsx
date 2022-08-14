@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
 import { Provider } from "react-redux";
@@ -21,6 +21,13 @@ import { CATEGORIES } from "../../utils/categoryData";
 
 function App(): JSX.Element {
   const menuRef = useRef<HTMLDivElement>(null);
+  const [menuDiv, setMenuDiv] = useState<HTMLDivElement>();
+
+  useEffect(() => {
+    if (menuRef.current) {
+      setMenuDiv(menuRef.current);
+    }
+  }, [menuRef.current]);
 
   return (
     <div className={styles.app}>
@@ -34,7 +41,7 @@ function App(): JSX.Element {
           </div>
           <div className={styles.navAndMenuRow}>
             <div className={styles.navWrapper}>
-              <Navigation />
+              <Navigation menuDiv={menuDiv} />
             </div>
             <div className={styles.menuWrapper}>
               <Menu
