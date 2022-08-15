@@ -9,7 +9,7 @@ import type { RootState } from '../../app/store';
 
 import {BooleansByDishIdMap, StringsByDishIdMap} from "../../utils/dishData";
 
-interface CartState {
+export interface CartState {
   selectedDishIdsMap: BooleansByDishIdMap;
   dishNotesMap: StringsByDishIdMap;
 }

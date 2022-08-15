@@ -9,7 +9,7 @@ import type { RootState } from '../../app/store';
 
 import {DishIds} from "../../utils/dishData";
 
-interface AddEditDishModalState {
+export interface AddEditDishModalState {
   isModalOpen: boolean;
   modalEditingDishId?: DishIds | null;
 }
