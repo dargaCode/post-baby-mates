@@ -1,7 +1,7 @@
 export type Styles = {
   header: string;
   logo: string;
-  cart: string;
+  cartButton: string;
   cartIcon: string;
 };
 
