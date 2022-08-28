@@ -4,7 +4,7 @@ import addEditDishModalReducer, {
   AddEditDishModalState
 } from "../components/AddEditDishModal/AddEditDishModal.slice";
 
-interface StoreState {
+export interface StoreState {
   cart: CartState;
   addEditDishModal: AddEditDishModalState;
 }

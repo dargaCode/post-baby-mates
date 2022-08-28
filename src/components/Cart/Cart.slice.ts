@@ -5,7 +5,7 @@ which detects changes to a "draft state" and produces a brand new
 immutable state based off those changes. */
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from '../../app/store';
+import type {StoreState} from '../../app/store';
 
 import {BooleansByDishIdMap, StringsByDishIdMap} from "../../utils/dishData";
 
@@ -49,6 +49,6 @@ export const cartSlice = createSlice({
 
 export const { addDishToCart, removeDishFromCart, removeAllDishesFromCart, setDishNotes } = cartSlice.actions;
 
-export const selectCart = (state: RootState) => state.cart;
+export const selectCart = (state: StoreState) => state.cart;
 
 export default cartSlice.reducer;

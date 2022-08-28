@@ -6,4 +6,4 @@ $header-height: 60px;
 $about-left-padding: 30px;
 $nav-width: 220px;
 $cart-width: 300px;
-$cart-height: calc(100vh - $header-height);
+$cart-height: calc(100vh - #{$header-height});

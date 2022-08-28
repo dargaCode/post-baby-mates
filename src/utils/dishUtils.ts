@@ -1,9 +1,9 @@
-import { CategoryNames } from "./categoryUtils";
+import { CategoryIds } from "./categoryUtils";
 
 export interface Dish {
   id: string;
   name: string;
-  categoryId: CategoryNames;
+  categoryId: CategoryIds;
   description: string;
   note: string;
   link?: string;
