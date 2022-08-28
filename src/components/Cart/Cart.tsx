@@ -7,7 +7,11 @@ import styles from "./Cart.module.scss";
 import { DISHES } from "../../utils/dishData";
 import CartDishCard from "../CartDishCard/CartDishCard";
 
-export default function Cart() {
+interface Props {
+  onCopyText: React.MouseEventHandler;
+}
+
+export default function Cart({ onCopyText }: Props) {
   const { selectedDishIdsMap } = useSelector(selectCart);
   const dispatch = useDispatch();
 
@@ -42,6 +46,12 @@ export default function Cart() {
           onClick={handleClearCart}
         >
           Clear Cart
+        </button>
+      )}
+      {!!cartDishes.length && (
+        <button type="button" className={styles.checkout} onClick={onCopyText}>
+          <div className={styles.checkoutCta}>Place Order</div>
+          <div className={styles.checkoutNote}>(Copy to clipboard)</div>
         </button>
       )}
     </div>

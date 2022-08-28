@@ -78,7 +78,7 @@ function App(): JSX.Element {
           </div>
         </div>
         <div className={styles.cartWrapper}>
-          <Cart />
+          <Cart onCopyText={handleCopyCartText} />
         </div>
       </div>
       {/* TODO FOOTER? */}

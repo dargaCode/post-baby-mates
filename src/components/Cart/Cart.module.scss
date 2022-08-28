@@ -24,6 +24,30 @@
   cursor: pointer;
 }
 
+.checkout {
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  background-color: rgba(34, 89, 75);
+  color: white;
+  padding: 8px;
+
+  .checkoutCta {
+    font-weight: 400;
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .checkoutNote {
+    font-size: 8pt;
+  }
+
+  &:hover {
+    background-color: rgb(56, 106, 93);
+  }
+}
+
 .cartTitle {
   font-size: 18pt;
   font-weight: 400;

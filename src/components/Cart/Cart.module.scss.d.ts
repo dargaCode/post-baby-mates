@@ -2,6 +2,9 @@ export type Styles = {
   cart: string;
   dishes: string;
   clearCart: string;
+  checkout: string;
+  checkoutCta: string;
+  checkoutNote: string;
   cartTitle: string;
   cartDescription: string;
   deliverBy: string;
