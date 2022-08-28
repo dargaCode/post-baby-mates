@@ -29,10 +29,34 @@ function App(): JSX.Element {
     }
   }, [menuRef.current]);
 
+  const handleCopyCartText = () => {
+    // TODO switch to ref?
+    // TODO build custom string?
+    // TODO paste rich text?
+    // TODO send email instead of copy?
+    const copyTarget = document.querySelector("#copy-target");
+
+    if (copyTarget === null) {
+      return;
+    }
+
+    const { textContent } = copyTarget;
+
+    navigator.clipboard
+      .writeText(textContent as string)
+      // eslint-disable-next-line promise/always-return
+      .then(() => {
+        console.log("copy success", textContent);
+      })
+      .catch(error => {
+        console.log("copy failure", error);
+      });
+  };
+
   return (
     <div className={styles.app}>
       <div className={styles.headerWrapper}>
-        <Header />
+        <Header onCopyCartText={handleCopyCartText} />
       </div>
       <div className={styles.aboutAndCartRow}>
         <div className={styles.aboutColumn}>

@@ -7,7 +7,11 @@ import logo from "../../img/post-baby-mates-logo.png";
 import cart from "../../img/icons/cart.svg";
 import { selectCart } from "../Cart/Cart.slice";
 
-export default function Header(): JSX.Element {
+interface Props {
+  onCopyCartText: React.MouseEventHandler;
+}
+
+export default function Header({ onCopyCartText }: Props): JSX.Element {
   const { selectedDishIdsMap } = useSelector(selectCart);
 
   const cartDishCount = Object.keys(selectedDishIdsMap).length;
@@ -22,6 +26,7 @@ export default function Header(): JSX.Element {
       <button
         type="button"
         className={styles.cartButton}
+        onClick={onCopyCartText}
       >
         <img src={cart} className={styles.cartIcon} alt="Cart" />
         {cartText}

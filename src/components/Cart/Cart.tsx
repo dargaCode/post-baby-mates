@@ -28,9 +28,12 @@ export default function Cart() {
       <div>
         <div className={styles.cartTitle}>Your Items</div>
         <p className={styles.cartDescription}> Select up to 6 items</p>
-        <p className={styles.deliverBy}>Delivery in 2 weeks to your doorstep</p> 
+        <p className={styles.deliverBy}>Delivery in 2 weeks to your doorstep</p>
 
-        <div className={styles.dishes}>{renderDishes()}</div>
+        {/* TODO delete id */}
+        <div className={styles.dishes} id="copy-target">
+          {renderDishes()}
+        </div>
       </div>
       {!!cartDishes.length && (
         <button
