@@ -36,10 +36,7 @@ export default function Cart({ onCopyText }: Props) {
         <p className={styles.cartDescription}> Select up to 6 items</p>
         <p className={styles.deliverBy}>Delivery in 2 weeks to your doorstep</p>
       </div>
-      {/* TODO delete id */}
-      <div className={styles.dishes} id="copy-target">
-        {renderDishes()}
-      </div>
+      <div className={styles.dishes}>{renderDishes()}</div>
       {!!cartDishes.length && (
         <button
           type="button"

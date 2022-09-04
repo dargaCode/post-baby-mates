@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import store from "../../app/store";
 
 import styles from "./App.module.scss";
@@ -15,11 +15,15 @@ import About from "../About/About";
 
 import {
   DISHES_BY_ID_MAP,
-  DISHES_BY_CATEGORY_ID_MAP
+  DISHES_BY_CATEGORY_ID_MAP,
+  DISHES
 } from "../../utils/dishData";
 import { CATEGORIES } from "../../utils/categoryData";
+import { selectCart } from "../Cart/Cart.slice";
 
 function App(): JSX.Element {
+  const { selectedDishIdsMap, dishNotesMap } = useSelector(selectCart);
+
   const menuRef = useRef<HTMLDivElement>(null);
   const [menuDiv, setMenuDiv] = useState<HTMLDivElement>();
 
@@ -30,26 +34,26 @@ function App(): JSX.Element {
   }, [menuRef.current]);
 
   const handleCopyCartText = () => {
-    // TODO switch to ref?
-    // TODO build custom string?
-    // TODO paste rich text?
+    const cartDishes = DISHES.filter(dish => selectedDishIdsMap[dish.id]);
+
+    const cartDishesText = cartDishes
+      .map(({ name, id }, index) => {
+        const notes = dishNotesMap[id];
+        const notesText = notes ? `\n    Notes: "${notes}"` : "";
+
+        return `${index + 1}: ${name}${notesText}`;
+      })
+      .join("\n");
+
     // TODO send email instead of copy?
-    const copyTarget = document.querySelector("#copy-target");
-
-    if (copyTarget === null) {
-      return;
-    }
-
-    const { textContent } = copyTarget;
-
     navigator.clipboard
-      .writeText(textContent as string)
+      .writeText(cartDishesText)
       // eslint-disable-next-line promise/always-return
       .then(() => {
-        console.log("copy success", textContent);
+        console.log("Copy success", cartDishesText);
       })
       .catch(error => {
-        console.log("copy failure", error);
+        console.log("Copy failure", error);
       });
   };
 
@@ -81,7 +85,6 @@ function App(): JSX.Element {
           <Cart onCopyText={handleCopyCartText} />
         </div>
       </div>
-      {/* TODO FOOTER? */}
     </div>
   );
 }
