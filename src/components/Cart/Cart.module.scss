@@ -47,12 +47,37 @@
 }
 
 .checkout {
+  position: relative;
   cursor: pointer;
   border: none;
   border-radius: 20px;
   background-color: rgba(34, 89, 75);
   color: white;
   padding: 8px;
+
+  .copiedNotification {
+    position: absolute;
+    top: -29px;
+    left: 0;
+    width: 100%;
+
+    span {
+      background: #444;
+      padding: 5px 10px;
+      border-radius: 10px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: black transparent transparent transparent;
+      }
+    }
+  }
 
   .checkoutCta {
     font-weight: 400;

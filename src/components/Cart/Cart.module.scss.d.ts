@@ -4,6 +4,7 @@ export type Styles = {
   dishes: string;
   clearCart: string;
   checkout: string;
+  copiedNotification: string;
   checkoutCta: string;
   checkoutNote: string;
   cartTitle: string;

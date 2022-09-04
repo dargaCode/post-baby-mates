@@ -27,6 +27,8 @@ function App(): JSX.Element {
   const menuRef = useRef<HTMLDivElement>(null);
   const [menuDiv, setMenuDiv] = useState<HTMLDivElement>();
 
+  const [wasCartRecentlyCopied, setWasCartRecentlyCopied] = useState(false);
+
   useEffect(() => {
     if (menuRef.current) {
       setMenuDiv(menuRef.current);
@@ -51,6 +53,7 @@ function App(): JSX.Element {
       // eslint-disable-next-line promise/always-return
       .then(() => {
         console.log("Copy success", cartDishesText);
+        setWasCartRecentlyCopied(true);
       })
       .catch(error => {
         console.log("Copy failure", error);
@@ -60,6 +63,7 @@ function App(): JSX.Element {
   return (
     <div className={styles.app}>
       <div className={styles.headerWrapper}>
+        {/* TODO remove copy handler */}
         <Header onCopyCartText={handleCopyCartText} />
       </div>
       <div className={styles.aboutAndCartRow}>
@@ -82,7 +86,10 @@ function App(): JSX.Element {
           </div>
         </div>
         <div className={styles.cartWrapper}>
-          <Cart onCopyText={handleCopyCartText} />
+          <Cart
+            onCopyText={handleCopyCartText}
+            shouldShowCopiedNotification={wasCartRecentlyCopied}
+          />
         </div>
       </div>
     </div>

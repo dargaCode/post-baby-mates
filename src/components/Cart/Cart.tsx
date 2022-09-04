@@ -9,9 +9,13 @@ import CartDishCard from "../CartDishCard/CartDishCard";
 
 interface Props {
   onCopyText: React.MouseEventHandler;
+  shouldShowCopiedNotification: boolean;
 }
 
-export default function Cart({ onCopyText }: Props) {
+export default function Cart({
+  onCopyText,
+  shouldShowCopiedNotification
+}: Props) {
   const { selectedDishIdsMap } = useSelector(selectCart);
   const dispatch = useDispatch();
 
@@ -29,6 +33,40 @@ export default function Cart({ onCopyText }: Props) {
     ));
   }
 
+  function renderClearCartButton() {
+    if (!cartDishes.length) {
+      return null;
+    }
+
+    return (
+      <button
+        type="button"
+        className={styles.clearCart}
+        onClick={handleClearCart}
+      >
+        Clear Cart
+      </button>
+    );
+  }
+
+  function renderCheckoutButton() {
+    if (!cartDishes.length) {
+      return null;
+    }
+
+    return (
+      <button type="button" className={styles.checkout} onClick={onCopyText}>
+        {shouldShowCopiedNotification && (
+          <div className={styles.copiedNotification}>
+            <span>copied!</span>
+          </div>
+        )}
+        <div className={styles.checkoutCta}>Place Order</div>
+        <div className={styles.checkoutNote}>(Copy to clipboard)</div>
+      </button>
+    );
+  }
+
   return (
     <div className={styles.cart}>
       <div className={styles.cartHeader}>
@@ -37,21 +75,8 @@ export default function Cart({ onCopyText }: Props) {
         <p className={styles.deliverBy}>Delivery in 2 weeks to your doorstep</p>
       </div>
       <div className={styles.dishes}>{renderDishes()}</div>
-      {!!cartDishes.length && (
-        <button
-          type="button"
-          className={styles.clearCart}
-          onClick={handleClearCart}
-        >
-          Clear Cart
-        </button>
-      )}
-      {!!cartDishes.length && (
-        <button type="button" className={styles.checkout} onClick={onCopyText}>
-          <div className={styles.checkoutCta}>Place Order</div>
-          <div className={styles.checkoutNote}>(Copy to clipboard)</div>
-        </button>
-      )}
+      {renderClearCartButton()}
+      {renderCheckoutButton()}
     </div>
   );
 }
