@@ -11,6 +11,7 @@ export default function Header(): JSX.Element {
   const { selectedDishIdsMap } = useSelector(selectCart);
   const dispatch = useDispatch();
 
+  // TODO the cart dish count doesn't update when items are deleted
   const cartDishCount = Object.keys(selectedDishIdsMap).length;
   const pluralizedItemText = `item${cartDishCount > 1 ? "s" : ""}`;
   const cartText =
