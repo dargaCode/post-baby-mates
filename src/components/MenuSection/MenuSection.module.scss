@@ -1,3 +1,5 @@
+@use '../../utils/break';
+
 .menuSection {
   margin-top: -3px;
 }
@@ -9,8 +11,16 @@
 
 .description {
   color: #777;
-  width: 75%;
+  width: 650px;
   margin-bottom: 30px;
+
+  @include break.under(large) {
+    width: 500px;
+  }
+
+  @include break.under(medium) {
+    width: 390px;
+  }
 }
 
 .dishes {

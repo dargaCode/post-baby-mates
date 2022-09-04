@@ -19,13 +19,15 @@
     .addEdit {
       width: 30px;
       background: none;
-      filter: invert(24%) sepia(60%) saturate(464%) hue-rotate(114deg) brightness(97%) contrast(84%);
+      filter: invert(24%) sepia(60%) saturate(464%) hue-rotate(114deg)
+        brightness(97%) contrast(84%);
       border: none;
       cursor: pointer;
-      .addButton{
+
+      .addButton {
         width: 30px;
       }
-      .editButton{
+      .editButton {
         width: 20px;
       }
     }
@@ -60,4 +62,3 @@
   font-style: italic;
   color: #777;
 }
-

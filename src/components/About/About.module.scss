@@ -1,9 +1,18 @@
+@use '../../utils/break';
+
 .about {
   display: flex;
   flex-direction: column;
   gap: 18px;
-
+  width: 650px;
   color: #777;
-  width: 75%;
   padding: 30px 0 15px;
+
+  @include break.under(medium) {
+    width: 500px;
+  }
+
+  @include break.under(small) {
+    width: 390px;
+  }
 }

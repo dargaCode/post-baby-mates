@@ -1,4 +1,5 @@
 @use '../../config/layout' as layout;
+@use '../../utils/break';
 
 .app {
 }
@@ -41,6 +42,11 @@
 
 .menuWrapper {
   flex-grow: 1;
+
+  // prevent slight shift as the cart is shown and hidden
+  @include break.under(xlarge) {
+    max-width: layout.$menu-max-width;
+  }
 }
 
 .cartWrapper {
