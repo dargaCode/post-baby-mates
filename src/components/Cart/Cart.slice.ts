@@ -12,6 +12,7 @@ import {BooleansByDishIdMap, StringsByDishIdMap} from "../../utils/dishData";
 export interface CartState {
   selectedDishIdsMap: BooleansByDishIdMap;
   dishNotesMap: StringsByDishIdMap;
+  isCartVisible: boolean;
 }
 
 interface SetDishNotesPayload {
@@ -22,6 +23,7 @@ interface SetDishNotesPayload {
 const initialState: CartState = {
   selectedDishIdsMap: {},
   dishNotesMap: {},
+  isCartVisible: false,
 };
 
 export const cartSlice = createSlice({
@@ -30,6 +32,9 @@ export const cartSlice = createSlice({
   initialState,
   // the `reducers` field lets us define reducers and generate associated actions
   reducers: {
+    toggleCartVisibility: (state) => {
+      state.isCartVisible = !state.isCartVisible;
+    },
     addDishToCart: (state, action: PayloadAction<string>) => {
       state.selectedDishIdsMap[action.payload] = true;
     },
@@ -47,7 +52,7 @@ export const cartSlice = createSlice({
   }
 });
 
-export const { addDishToCart, removeDishFromCart, removeAllDishesFromCart, setDishNotes } = cartSlice.actions;
+export const { toggleCartVisibility, addDishToCart, removeDishFromCart, removeAllDishesFromCart, setDishNotes } = cartSlice.actions;
 
 export const selectCart = (state: StoreState) => state.cart;
 

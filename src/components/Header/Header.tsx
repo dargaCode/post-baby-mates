@@ -1,23 +1,24 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import styles from "./Header.module.scss";
 
 import logo from "../../img/post-baby-mates-logo.png";
 import cart from "../../img/icons/cart.svg";
-import { selectCart } from "../Cart/Cart.slice";
+import { selectCart, toggleCartVisibility } from "../Cart/Cart.slice";
 
-interface Props {
-  onCopyCartText: React.MouseEventHandler;
-}
-
-export default function Header({ onCopyCartText }: Props): JSX.Element {
+export default function Header(): JSX.Element {
   const { selectedDishIdsMap } = useSelector(selectCart);
+  const dispatch = useDispatch();
 
   const cartDishCount = Object.keys(selectedDishIdsMap).length;
   const pluralizedItemText = `item${cartDishCount > 1 ? "s" : ""}`;
   const cartText =
     cartDishCount > 0 ? `${cartDishCount} ${pluralizedItemText}` : "Cart";
+
+  const handleToggleCartVisibility = () => {
+    dispatch(toggleCartVisibility());
+  };
 
   return (
     <header className={styles.header}>
@@ -26,7 +27,7 @@ export default function Header({ onCopyCartText }: Props): JSX.Element {
       <button
         type="button"
         className={styles.cartButton}
-        onClick={onCopyCartText}
+        onClick={handleToggleCartVisibility}
       >
         <img src={cart} className={styles.cartIcon} alt="Cart" />
         {cartText}

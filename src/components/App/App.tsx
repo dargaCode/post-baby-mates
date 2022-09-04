@@ -24,7 +24,9 @@ import { selectCart } from "../Cart/Cart.slice";
 const COPY_NOTIFICATION_TIMEOUT_MS = 2500;
 
 function App(): JSX.Element {
-  const { selectedDishIdsMap, dishNotesMap } = useSelector(selectCart);
+  const { isCartVisible, selectedDishIdsMap, dishNotesMap } = useSelector(
+    selectCart
+  );
 
   const menuRef = useRef<HTMLDivElement>(null);
   const [menuDiv, setMenuDiv] = useState<HTMLDivElement>();
@@ -69,8 +71,7 @@ function App(): JSX.Element {
   return (
     <div className={styles.app}>
       <div className={styles.headerWrapper}>
-        {/* TODO remove copy handler */}
-        <Header onCopyCartText={handleCopyCartText} />
+        <Header />
       </div>
       <div className={styles.aboutAndCartRow}>
         <div className={styles.aboutColumn}>
@@ -91,12 +92,14 @@ function App(): JSX.Element {
             </div>
           </div>
         </div>
-        <div className={styles.cartWrapper}>
-          <Cart
-            onCopyText={handleCopyCartText}
-            shouldShowCopiedNotification={wasCartRecentlyCopied}
-          />
-        </div>
+        {isCartVisible && (
+          <div className={styles.cartWrapper}>
+            <Cart
+              onCopyText={handleCopyCartText}
+              shouldShowCopiedNotification={wasCartRecentlyCopied}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
