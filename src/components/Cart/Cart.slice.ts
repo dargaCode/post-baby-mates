@@ -23,7 +23,7 @@ interface SetDishNotesPayload {
 const initialState: CartState = {
   selectedDishIdsMap: {},
   dishNotesMap: {},
-  isCartVisible: false,
+  isCartVisible: true,
 };
 
 export const cartSlice = createSlice({
