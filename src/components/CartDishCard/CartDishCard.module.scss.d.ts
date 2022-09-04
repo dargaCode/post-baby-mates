@@ -3,8 +3,8 @@ export type Styles = {
   name: string;
   edit: string;
   editIcon: string;
+  notesHeader: string;
   notes: string;
-  notesLabel: string;
 };
 
 export type ClassNames = keyof Styles;

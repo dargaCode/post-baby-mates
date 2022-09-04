@@ -18,7 +18,9 @@ export default function Cart({ onCopyText }: Props) {
   const cartDishes = DISHES.filter(dish => selectedDishIdsMap[dish.id]);
 
   function handleClearCart() {
-    dispatch(removeAllDishesFromCart());
+    if (confirm("Remove all items from cart? (Notes will be saved)")) {
+      dispatch(removeAllDishesFromCart());
+    }
   }
 
   function renderDishes() {
@@ -29,15 +31,14 @@ export default function Cart({ onCopyText }: Props) {
 
   return (
     <div className={styles.cart}>
-      <div>
+      <div className={styles.cartHeader}>
         <div className={styles.cartTitle}>Your Items</div>
         <p className={styles.cartDescription}> Select up to 6 items</p>
         <p className={styles.deliverBy}>Delivery in 2 weeks to your doorstep</p>
-
-        {/* TODO delete id */}
-        <div className={styles.dishes} id="copy-target">
-          {renderDishes()}
-        </div>
+      </div>
+      {/* TODO delete id */}
+      <div className={styles.dishes} id="copy-target">
+        {renderDishes()}
       </div>
       {!!cartDishes.length && (
         <button

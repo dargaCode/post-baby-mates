@@ -1,14 +1,14 @@
 .cartDishCard {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-
-  padding: 10px 12px;
-  margin-top: 10px;
-  
+  gap: 10px;
+  padding: 10px 12px 16px;
   cursor: pointer;
-
   border-top: 1px solid #ccc;
+
+  &:last-child {
+    border-bottom: 1px solid #ccc;
+  }
 }
 
 .name {
@@ -16,35 +16,32 @@
   font-weight: 600;
 }
 
-.notes {
+.edit {
   display: flex;
-  align-items: flex-start;
-  gap: 5px;
+  align-content: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-weight: 500;
+
+  .editIcon {
+    background: none;
+    margin-left: 4px;
+    width: 16px;
+    height: 16px;
+    filter: invert(24%) sepia(60%) saturate(464%) hue-rotate(114deg)
+      brightness(97%) contrast(84%);
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.notesHeader {
+  display: flex;
+}
+
+.notes {
   font-size: 10pt;
   font-weight: 300;
   color: #333;
-  margin-bottom: 12px;
-
-  .notesLabel {
-    font-weight: 500;
-  }
-
-  .edit {
-    display: inline;
-    cursor: pointer;
-    border: none;
-    background: none;
-    font-weight: 500;
-
-    .editIcon{
-      background: none;
-      margin-left: 4px;
-      height: 16px;
-      filter: invert(24%) sepia(60%) saturate(464%) hue-rotate(114deg) brightness(97%) contrast(84%);
-      border: none;
-      cursor: pointer;
-    }
-  }
-
-  
 }

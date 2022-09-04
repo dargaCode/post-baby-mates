@@ -1,5 +1,6 @@
 export type Styles = {
   cart: string;
+  cartHeader: string;
   dishes: string;
   clearCart: string;
   checkout: string;

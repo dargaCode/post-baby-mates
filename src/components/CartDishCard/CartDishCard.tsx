@@ -29,7 +29,7 @@ export default function CartDishCard(props: Props): JSX.Element {
 
     const buttonNode = (
       <button type="button" className={styles.edit} onClick={handleClick}>
-        {notes ? "" : "Add Notes"}
+        {notes ? "Notes" : "Add Notes"}
 
         <img src={edit} className={styles.editIcon} alt="Edit" />
       </button>
@@ -38,11 +38,14 @@ export default function CartDishCard(props: Props): JSX.Element {
     return (
       <div className={styles.notes}>
         {notes && (
-          <p id="notes" className={styles.notes}>
-            <span className={styles.notesLabel}>Notes:</span>
-            {notes}
-            <span>{buttonNode}</span>
-          </p>
+          <div>
+            <div className={styles.notesHeader}>
+              <span>{buttonNode}</span>
+            </div>
+            <p id="notes" className={styles.notes}>
+              {notes}
+            </p>
+          </div>
         )}
         {!notes && buttonNode}
       </div>
