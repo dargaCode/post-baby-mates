@@ -21,6 +21,8 @@ import {
 import { CATEGORIES } from "../../utils/categoryData";
 import { selectCart } from "../Cart/Cart.slice";
 
+const COPY_NOTIFICATION_TIMEOUT_MS = 2500;
+
 function App(): JSX.Element {
   const { selectedDishIdsMap, dishNotesMap } = useSelector(selectCart);
 
@@ -54,6 +56,10 @@ function App(): JSX.Element {
       .then(() => {
         console.log("Copy success", cartDishesText);
         setWasCartRecentlyCopied(true);
+
+        setTimeout(() => {
+          setWasCartRecentlyCopied(false);
+        }, COPY_NOTIFICATION_TIMEOUT_MS);
       })
       .catch(error => {
         console.log("Copy failure", error);

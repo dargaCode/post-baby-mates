@@ -58,7 +58,7 @@ export default function Cart({
       <button type="button" className={styles.checkout} onClick={onCopyText}>
         {shouldShowCopiedNotification && (
           <div className={styles.copiedNotification}>
-            <span>copied!</span>
+            <span>Copied!</span>
           </div>
         )}
         <div className={styles.checkoutCta}>Place Order</div>
