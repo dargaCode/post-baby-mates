@@ -1,9 +1,7 @@
-@use 'layout';
-
 $max-widths: (
-  "xlarge": calc(#{layout.$base-width-unit} * 11.25),
-  "large": calc(#{layout.$base-width-unit} * 7.5),
-  "medium": calc(#{layout.$base-width-unit} * 6.5),
-  "small": calc(#{layout.$base-width-unit} * 5),
-  "tiny": calc(#{layout.$base-width-unit} * 3.5)
+  "xlarge": 1350px,
+  "large": 900px,
+  "medium": 780px,
+  "small": 600px,
+  "tiny": 420
 );
