@@ -2,6 +2,25 @@
 @use '../../utils/break';
 
 .app {
+  @include break.under(xlarge) {
+    background: pink;
+  }
+
+  @include break.under(large) {
+    background: darkorchid;
+  }
+
+  @include break.under(medium) {
+    background: darkgoldenrod;
+  }
+
+  @include break.under(small) {
+    background: darkblue;
+  }
+
+  @include break.under(small) {
+    background: darkred;
+  }
 }
 
 .headerWrapper {
@@ -38,6 +57,11 @@
 .navWrapper {
   flex-basis: layout.$nav-width;
   flex-shrink: 0.5;
+
+  @include break.under(xlarge) {
+    display: none;
+    background: magenta;
+  }
 }
 
 .menuWrapper {
