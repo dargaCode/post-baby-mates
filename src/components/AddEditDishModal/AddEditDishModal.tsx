@@ -29,7 +29,7 @@ export default function AddEditDishModal(props: Props): JSX.Element {
 
   const { selectedDishIdsMap } = useSelector(selectCart);
 
-  const isSelected = !!selectedDishIdsMap[id];
+  const isSelected = selectedDishIdsMap[id];
 
   function handleChangeNotes(
     event: React.ChangeEvent<HTMLTextAreaElement>
