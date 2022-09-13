@@ -23,11 +23,21 @@ export default function Navigation({
   const [activeSectionIndex, setActiveSectionIndex] = useState<number>(-1);
 
   function handleWindowScroll() {
-    const menuSectionDivs = categories.map(({ id }) => {
-      if (!menuDiv) {
-        return null;
-      }
+    if (!menuDiv) {
+      return;
+    }
 
+    const { bottom: menuBottom } = menuDiv.getBoundingClientRect();
+
+    const isWindowScrolledToBottom =
+      window.scrollY > 0 && Math.floor(menuBottom) <= window.innerHeight;
+
+    if (isWindowScrolledToBottom) {
+      setActiveSectionIndex(categories.length - 1);
+      return;
+    }
+
+    const menuSectionDivs = categories.map(({ id }) => {
       return menuDiv.querySelector(`#${id}`) as HTMLDivElement;
     });
 
